@@ -1,0 +1,10 @@
+todo.*
+build
+dist
+__pycache__
+notebooks/*.csv
+notebooks/*.npz
+notebooks/*.h5
+notebooks/.ipynb_checkpoints
+docs/doctrees
+docs/html/.buildinfo
