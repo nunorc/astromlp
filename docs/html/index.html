@@ -72,7 +72,7 @@
   <div class="section" id="astromlp">
 <h1>astromlp<a class="headerlink" href="#astromlp" title="Permalink to this headline"></a></h1>
 <p><strong>Experimental and under development!</strong></p>
-<p>A toolbox for building machine learning pipelines for astrophysics
+<p>A framework for building machine learning pipelines for astrophysics
 models and applications.</p>
 <p>All the datasets are pre-built and made available as illustrated
 in the next section. Models architectures are also available. Once
@@ -80,6 +80,7 @@ you use a dataset or model, a local copy is downloaded to your
 machine (some of the files are <em>largish</em>), once downloaded the
 the local file is then used in future instantiations of the
 dataset/model. The downloaded files are stored in <cite>$HOME/.astromlp</cite>.</p>
+<p><a class="reference external" href="https://github.com/nunorc/astromlp">Repository</a> | <a class="reference external" href="https://nunorc.github.io/astromlp">Documentation</a></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
 <p>Install package from the git repository:</p>
@@ -91,6 +92,7 @@ dataset/model. The downloaded files are stored in <cite>$HOME/.astromlp</cite>.<
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
 <p>Do some imports:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 <p>Setup a dataset given an unique identifier, which contains data as a set of <cite>numpy</cite> arrays:</p>
@@ -117,6 +119,15 @@ dataset/model. The downloaded files are stored in <cite>$HOME/.astromlp</cite>.<
 <span class="gp">...</span>
 <span class="go">Epoch 1/10</span>
 <span class="go">5311/72091 [=&gt;............................] - ETA: 1:11 - loss: 214.0605 - mean_squared_error: 214.0605</span>
+</pre></div>
+</div>
+<p>Once the model is trained it can be applied to new data, i.e. predict the redshift
+given band values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">18.27583</span><span class="p">,</span> <span class="mf">19.274648</span><span class="p">,</span> <span class="mf">19.19848</span><span class="p">,</span> <span class="mf">16.38564</span><span class="p">,</span> <span class="mf">17.17455</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1, 5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">array([[-0.27960014]], dtype=float32)</span>
 </pre></div>
 </div>
 <p>Models are instantiated using a backend, <cite>Keras</cite> by default, and the
