@@ -14,6 +14,8 @@ machine (some of the files are *largish*), once downloaded the
 the local file is then used in future instantiations of the
 dataset/model. The downloaded files are stored in `$HOME/.astromlp`.
 
+`Repository <https://github.com/nunorc/astromlp>`_ | `Documentation <https://nunorc.github.io/astromlp>`_
+
 Installation
 -------------------------------------
 
