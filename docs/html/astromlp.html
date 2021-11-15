@@ -90,14 +90,14 @@
 <span id="astromlp-classes-module"></span><h2>astromlp.classes module<a class="headerlink" href="#module-astromlp.classes" title="Permalink to this headline"></a></h2>
 <p>Base classes definition.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="astromlp.classes.Dataset">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Dataset" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="astromlp.classes.Data">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Data" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A wrapper class for datasets.</p>
+<p>A wrapper class for a data source.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="astromlp.classes.Dataset.id">
-<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#astromlp.classes.Dataset.id" title="Permalink to this definition"></a></dt>
-<dd><p>dataset unique identifier</p>
+<dt class="sig sig-object py" id="astromlp.classes.Data.uid">
+<span class="sig-name descname"><span class="pre">uid</span></span><a class="headerlink" href="#astromlp.classes.Data.uid" title="Permalink to this definition"></a></dt>
+<dd><p>data source unique identifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
@@ -108,17 +108,57 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="astromlp.classes.Dataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A wrapper class for datasets.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.classes.Dataset.features">
+<span class="sig-name descname"><span class="pre">features</span></span><a class="headerlink" href="#astromlp.classes.Dataset.features" title="Permalink to this definition"></a></dt>
+<dd><p>dataset features tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>nparray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.classes.Dataset.target">
+<span class="sig-name descname"><span class="pre">target</span></span><a class="headerlink" href="#astromlp.classes.Dataset.target" title="Permalink to this definition"></a></dt>
+<dd><p>dataset target tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>nparray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="astromlp.classes.Model">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'keras'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Model" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'keras'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">do_fit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Model" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A wrapper class for models.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="astromlp.classes.Model.id">
-<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#astromlp.classes.Model.id" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="astromlp.classes.Model.uid">
+<span class="sig-name descname"><span class="pre">uid</span></span><a class="headerlink" href="#astromlp.classes.Model.uid" title="Permalink to this definition"></a></dt>
 <dd><p>model unique identifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.classes.Model.val">
+<span class="sig-name descname"><span class="pre">val</span></span><a class="headerlink" href="#astromlp.classes.Model.val" title="Permalink to this definition"></a></dt>
+<dd><p>use validation set while fitting if possible, defaults to <cite>False</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -148,12 +188,60 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id1">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.classes.Pipeline">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">steps</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Pipeline" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.classes.Pipeline.add_callback">
+<span class="sig-name descname"><span class="pre">add_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Pipeline.add_callback" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.classes.Pipeline.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Pipeline.apply" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.classes.Pipeline.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Pipeline.predict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.classes.Scaler">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Scaler</span></span><a class="headerlink" href="#astromlp.classes.Scaler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.classes.Scaler.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Scaler.save" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.classes.Scaler.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Scaler.transform" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.classes.Splitter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">astromlp.classes.</span></span><span class="sig-name descname"><span class="pre">Splitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Splitter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.classes.Splitter.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.classes.Splitter.transform" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -201,6 +289,11 @@
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.utils.filename_and_url">
+<span class="sig-prename descclassname"><span class="pre">astromlp.utils.</span></span><span class="sig-name descname"><span class="pre">filename_and_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.utils.filename_and_url" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-astromlp">

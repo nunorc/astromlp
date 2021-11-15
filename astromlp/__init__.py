@@ -3,7 +3,7 @@
 
 import logging
 
-from .classes import Dataset, Model
+from .classes import Data, Dataset, Model, Splitter, Scaler, Pipeline
 
 logging.basicConfig(format = '%(asctime)s | %(levelname)s: %(message)s',
                     datefmt = "%Y-%m-%d %H:%M:%S",

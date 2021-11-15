@@ -91,30 +91,30 @@ dataset/model. The downloaded files are stored in <cite>$HOME/.astromlp</cite>.<
 <div class="section" id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
 <p>Do some imports:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">Data</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span>
 </pre></div>
 </div>
-<p>Setup a dataset given an unique identifier, which contains data as a set of <cite>numpy</cite> arrays:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="s1">&#39;sdss_specphoto_ugriz_redshift&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="o">.</span><span class="n">nparrays</span>
-<span class="go">[&#39;ids&#39;, &#39;X&#39;, &#39;y&#39;, &#39;X_cols&#39;, &#39;y_cols&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<p>Setup a data source readily available, which provides aset of <cite>nparrays</cite>, in this example
+data from the SDSS database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="s1">&#39;sdss_specphoto&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span><span class="o">.</span><span class="n">nparrays</span>
+<span class="go">[&#39;id&#39;, &#39;ugriz&#39;, &#39;redshift&#39;, &#39;class_&#39;, &#39;class1hot&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span><span class="o">.</span><span class="n">ugriz</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4613773, 5)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="o">.</span><span class="n">X</span>
-<span class="go">array([[19.78247, 18.51326, 17.70357, 17.26893, 16.97296],</span>
-<span class="go">       [20.85782, 18.6041 , 17.62333, 17.17327, 16.83212],</span>
-<span class="go">       [18.25609, 17.21735, 16.89063, 16.75081, 16.66703],</span>
-<span class="go">       ...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span><span class="o">.</span><span class="n">X_cols</span>
-<span class="go">array([&#39;u&#39;, &#39;g&#39;, &#39;r&#39;, &#39;i&#39;, &#39;z&#39;], dtype=object)</span>
+</pre></div>
+</div>
+<p>Setup a dataset with data from the previous source, in this example the features are
+the band values, and the target in the redshift:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">ugriz</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">redshift</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span>
+<span class="go">Dataset(features=(4613773, 5), target=(4613773,))</span>
 </pre></div>
 </div>
 <p>Setup a previously created untrained model given an unique identifier and fit the data:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s1">&#39;keras_ugriz_redshift&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">desc</span>
 <span class="go">&#39;Inputs: (None, 5) -&gt; Outputs: (None, 1)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
 <span class="go">2021-11-10 12:20:16 | INFO: batch_size=64 epochs=10</span>
 <span class="gp">...</span>
 <span class="go">Epoch 1/10</span>
@@ -126,11 +126,11 @@ given band values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">18.27583</span><span class="p">,</span> <span class="mf">19.274648</span><span class="p">,</span> <span class="mf">19.19848</span><span class="p">,</span> <span class="mf">16.38564</span><span class="p">,</span> <span class="mf">17.17455</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(1, 5)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="go">array([[-0.27960014]], dtype=float32)</span>
 </pre></div>
 </div>
-<p>Models are instantiated using a backend, <cite>Keras</cite> by default, and the
+<p>Models are instantiated using a backend, Keras by default, and the
 underlying model is always available in the <cite>model</cite> attribute:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">model</span>
 <span class="go">&lt;keras.engine.functional.Functional object at 0x159ab75e0&gt;</span>
@@ -153,6 +153,45 @@ underlying model is always available in the <cite>model</cite> attribute:</p>
 <span class="go">Trainable params: 865</span>
 <span class="go">Non-trainable params: 0</span>
 <span class="go">_________________________________________________________________</span>
+</pre></div>
+</div>
+<p>More complex workflows can be achieved, let’s do some more imports:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">Scaler</span><span class="p">,</span> <span class="n">Splitter</span><span class="p">,</span> <span class="n">Pipeline</span>
+</pre></div>
+</div>
+<p>A common operation before fitting the model to the actual data is to scale the
+values, we can create a new <cite>Scaler</cite> object that used the <cite>StandardScaler</cite>
+from scikit-learn by default:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span> <span class="o">=</span> <span class="n">Scaler</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span>
+<span class="go">Scaler(backend=StandardScaler())</span>
+</pre></div>
+</div>
+<p>We can also split the data into a train and validation set, to do this
+we can use a <cite>Splitter</cite> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">Splitter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span>
+<span class="go">Splitter(test_size=0.2, random_state=None)</span>
+</pre></div>
+</div>
+<p>We need to recreate our model instance to tell it we want to use a validation
+set:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s1">&#39;keras_ugriz_redshift&#39;</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And instead of manually applying all these operations we can create a pipeline
+specifying the individual steps, and apply this sequence of operations to the
+dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">ml</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="go">(...)</span>
+<span class="go">Epoch 1/10</span>
+<span class="go"> 3737/57673 [&gt;.............................] - ETA: 57s - loss: 0.5945 - mean_squared_error: 0.5945</span>
+</pre></div>
+</div>
+<p>Callbacks can be added after each step to perform any extra operations, for example
+save to file the <cite>Scaler</cite> instance to use in future data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">Scaler</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my-scaler.pkl&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

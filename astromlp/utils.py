@@ -4,7 +4,15 @@
 import logging, os, requests
 from tqdm import tqdm
 
+from .env import BASEDIR, BASEURL
+
 logger = logging.getLogger(__name__)
+
+def filename_and_url(uid, sub, ext):
+    filename = os.path.join(BASEDIR, sub, f'{ uid }.{ ext }')
+    url = '/'.join([BASEURL, sub, f'{ uid }.{ ext }'])
+
+    return filename, url
 
 def download_file(url, filename):
     """ Function to download a file.
