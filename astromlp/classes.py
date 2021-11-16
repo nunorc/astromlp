@@ -12,7 +12,7 @@ from .utils import filename_and_url, download_file
 
 logger = logging.getLogger(__name__)
 
-class Data:
+class DataSource:
     """ A wrapper class for a data source.
 
     Attributes

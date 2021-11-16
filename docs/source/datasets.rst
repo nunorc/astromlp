@@ -1,8 +1,8 @@
 
-Datasets
-========
+Data Sources
+============
 
-List of currently available datasets.
+List of currently available data sources.
 
 SDSS
 ____
@@ -10,8 +10,7 @@ ____
 ===============================  =================================================================
 Id                               Description
 ===============================  =================================================================
-`sdss_specphoto_ugriz_redshift`  u, g, r, i, z bands and redshift for primary objects from SDSS
-`sdss_specphoto_ugriz_class`     u, g, r, i, z bands and obj class for primary objects from SDSS
+`sdss_specphoto`                 u, g, r, i, z bands, redshift and class for primary objects from SDSS
 ===============================  =================================================================
 
 More details on how datasets are created avaibable from these

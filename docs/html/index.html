@@ -41,7 +41,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Data Sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
 </ul>
 
@@ -91,21 +91,34 @@ dataset/model. The downloaded files are stored in <cite>$HOME/.astromlp</cite>.<
 <div class="section" id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
 <p>Do some imports:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">Data</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span>
 </pre></div>
 </div>
-<p>Setup a data source readily available, which provides aset of <cite>nparrays</cite>, in this example
-data from the SDSS database:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="s1">&#39;sdss_specphoto&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span><span class="o">.</span><span class="n">nparrays</span>
+<p>Setup a data source readily available, which provides a set of <cite>nparrays</cite>, in this example
+data from <cite>specphoto</cite> table in the SDSS database:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span> <span class="o">=</span> <span class="n">DataSource</span><span class="p">(</span><span class="s1">&#39;sdss_specphoto&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">nparrays</span>
 <span class="go">[&#39;id&#39;, &#39;ugriz&#39;, &#39;redshift&#39;, &#39;class_&#39;, &#39;class1hot&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span><span class="o">.</span><span class="n">ugriz</span><span class="o">.</span><span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">ugriz</span>
+<span class="go">array([[19.78247, 18.51326, 17.70357, 17.26893, 16.97296],</span>
+<span class="go">       [20.85782, 18.6041 , 17.62333, 17.17327, 16.83212],</span>
+<span class="go">       [18.25609, 17.21735, 16.89063, 16.75081, 16.66703],</span>
+<span class="go">       ...,</span>
+<span class="go">       [22.22028, 21.68921, 21.66217, 21.37846, 20.71212],</span>
+<span class="go">       [23.31769, 23.67536, 21.14215, 20.11948, 19.61694],</span>
+<span class="go">       [23.35438, 21.86783, 20.52837, 19.7718 , 19.45774]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">ugriz</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4613773, 5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">class_</span>
+<span class="go">array([&#39;GALAXY&#39;, &#39;GALAXY&#39;, &#39;STAR&#39;, ..., &#39;QSO&#39;, &#39;GALAXY&#39;, &#39;GALAXY&#39;],</span>
+<span class="go">      dtype=object)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">class_</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(4613773,)</span>
 </pre></div>
 </div>
 <p>Setup a dataset with data from the previous source, in this example the features are
 the band values, and the target in the redshift:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">ugriz</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">redshift</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">sdss</span><span class="o">.</span><span class="n">ugriz</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">sdss</span><span class="o">.</span><span class="n">redshift</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span>
 <span class="go">Dataset(features=(4613773, 5), target=(4613773,))</span>
 </pre></div>
@@ -195,12 +208,11 @@ save to file the <cite>Scaler</cite> instance to use in future data:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="available-datasets-and-models">
-<h2>Available Datasets and Models<a class="headerlink" href="#available-datasets-and-models" title="Permalink to this headline"></a></h2>
-<p>Datasets:</p>
+<div class="section" id="available-data-sources-and-models">
+<h2>Available Data Sources and Models<a class="headerlink" href="#available-data-sources-and-models" title="Permalink to this headline"></a></h2>
+<p>Data sources:</p>
 <ul class="simple">
-<li><p><cite>sdss_specphoto_ugriz_redshift</cite></p></li>
-<li><p><cite>sdss_specphoto_ugriz_class</cite></p></li>
+<li><p><cite>sdss_specphoto</cite></p></li>
 </ul>
 <p>Models:</p>
 <ul class="simple">
@@ -221,7 +233,7 @@ save to file the <cite>Scaler</cite> instance to use in future data:</p>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Data Sources</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="datasets.html#sdss">SDSS</a></li>
 </ul>
 </li>

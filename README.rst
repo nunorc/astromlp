@@ -32,25 +32,39 @@ Do some imports:
 
 .. code-block:: python
 
-    from astromlp import Data, Dataset, Model
+    from astromlp import DataSource, Dataset, Model
 
-Setup a data source readily available, which provides aset of `nparrays`, in this example
-data from the SDSS database:
+Setup a data source readily available, which provides a set of `nparrays`, in this example
+data from `specphoto` table in the SDSS database:
 
 .. code-block:: python
 
-    >>> dt = Data('sdss_specphoto')
-    >>> dt.nparrays
+    >>> sdss = DataSource('sdss_specphoto')
+    >>> sdss.nparrays
     ['id', 'ugriz', 'redshift', 'class_', 'class1hot']
-    >>> dt.ugriz.shape
+    >>> sdss.ugriz
+    array([[19.78247, 18.51326, 17.70357, 17.26893, 16.97296],
+           [20.85782, 18.6041 , 17.62333, 17.17327, 16.83212],
+           [18.25609, 17.21735, 16.89063, 16.75081, 16.66703],
+           ...,
+           [22.22028, 21.68921, 21.66217, 21.37846, 20.71212],
+           [23.31769, 23.67536, 21.14215, 20.11948, 19.61694],
+           [23.35438, 21.86783, 20.52837, 19.7718 , 19.45774]])
+    >>> sdss.ugriz.shape
     (4613773, 5)
+    >>> sdss.class_
+    array(['GALAXY', 'GALAXY', 'STAR', ..., 'QSO', 'GALAXY', 'GALAXY'],
+          dtype=object)
+    >>> sdss.class_.shape
+    (4613773,)
+
 
 Setup a dataset with data from the previous source, in this example the features are
 the band values, and the target in the redshift:
 
 .. code-block:: python
 
-    >>> ds = Dataset(features=dt.ugriz, target=dt.redshift)
+    >>> ds = Dataset(features=sdss.ugriz, target=sdss.redshift)
     >>> ds
     Dataset(features=(4613773, 5), target=(4613773,))
 
@@ -158,13 +172,12 @@ save to file the `Scaler` instance to use in future data:
     >>> pl.add_callback(Scaler, lambda s: s.save('my-scaler.pkl'))
 
 
-Available Datasets and Models
+Available Data Sources and Models
 -------------------------------------
 
-Datasets:
+Data sources:
 
-* `sdss_specphoto_ugriz_redshift`
-* `sdss_specphoto_ugriz_class`
+* `sdss_specphoto`
 
 Models:
 
