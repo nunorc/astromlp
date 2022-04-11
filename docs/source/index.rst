@@ -6,5 +6,3 @@
    :caption: Contents:
 
    modules
-   datasets
-   models

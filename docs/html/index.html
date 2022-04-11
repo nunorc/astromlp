@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>astromlp &mdash; astromlp  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -28,7 +29,7 @@
             <a href="#" class="icon icon-home"> astromlp
           </a>
               <div class="version">
-                0.0.1a1
+                0.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -41,8 +42,6 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Data Sources</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
 </ul>
 
         </div>
@@ -69,179 +68,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="astromlp">
+  <section id="astromlp">
 <h1>astromlp<a class="headerlink" href="#astromlp" title="Permalink to this headline"></a></h1>
 <p><strong>Experimental and under development!</strong></p>
-<p>A framework for building machine learning pipelines for astrophysics
-models and applications.</p>
-<p>All the datasets are pre-built and made available as illustrated
-in the next section. Models architectures are also available. Once
-you use a dataset or model, a local copy is downloaded to your
-machine (some of the files are <em>largish</em>), once downloaded the
-the local file is then used in future instantiations of the
-dataset/model. The downloaded files are stored in <cite>$HOME/.astromlp</cite>.</p>
+<p>A framework for building deep learning models and pipelines for astrophysics applications.
+You can explore the available pipelines and related models online from the <a class="reference external" href="https://nunorc.github.io/astromlp-app/">astromlp-app</a>.</p>
 <p><a class="reference external" href="https://github.com/nunorc/astromlp">Repository</a> | <a class="reference external" href="https://nunorc.github.io/astromlp">Documentation</a></p>
-<div class="section" id="installation">
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
 <p>Install package from the git repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/nunorc/astromlp@master
 </pre></div>
 </div>
+<p>Extra requirements for galaxies charaterization pipelines:</p>
+<ul class="simple">
+<li><p>The models, available from the <a class="reference external" href="https://github.com/nunorc/astromlp-models">astromlp-models</a> repository, quick clone:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nunorc/astromlp-models.git
+</pre></div>
 </div>
-<div class="section" id="quick-start">
+<ul class="simple">
+<li><p>The <strong>mysdss</strong> package, available from the <a class="reference external" href="https://github.com/nunorc/mysdss">mysdss</a> repository, quick install:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/nunorc/mysdss@master
+</pre></div>
+</div>
+</section>
+<section id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
-<p>Do some imports:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">DataSource</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">Model</span>
+<p>Import pipelines for a specific topic, for example to import
+the <code class="code docutils literal notranslate"><span class="pre">One2One</span></code> and <code class="code docutils literal notranslate"><span class="pre">CherryPicked</span></code> pipelines for galaxies characterization:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astromlp.galaxies</span> <span class="kn">import</span> <span class="n">One2One</span><span class="p">,</span> <span class="n">CherryPicked</span>
 </pre></div>
 </div>
-<p>Setup a data source readily available, which provides a set of <cite>nparrays</cite>, in this example
-data from <cite>specphoto</cite> table in the SDSS database:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span> <span class="o">=</span> <span class="n">DataSource</span><span class="p">(</span><span class="s1">&#39;sdss_specphoto&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">nparrays</span>
-<span class="go">[&#39;id&#39;, &#39;ugriz&#39;, &#39;redshift&#39;, &#39;class_&#39;, &#39;class1hot&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">ugriz</span>
-<span class="go">array([[19.78247, 18.51326, 17.70357, 17.26893, 16.97296],</span>
-<span class="go">       [20.85782, 18.6041 , 17.62333, 17.17327, 16.83212],</span>
-<span class="go">       [18.25609, 17.21735, 16.89063, 16.75081, 16.66703],</span>
-<span class="go">       ...,</span>
-<span class="go">       [22.22028, 21.68921, 21.66217, 21.37846, 20.71212],</span>
-<span class="go">       [23.31769, 23.67536, 21.14215, 20.11948, 19.61694],</span>
-<span class="go">       [23.35438, 21.86783, 20.52837, 19.7718 , 19.45774]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">ugriz</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">(4613773, 5)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">class_</span>
-<span class="go">array([&#39;GALAXY&#39;, &#39;GALAXY&#39;, &#39;STAR&#39;, ..., &#39;QSO&#39;, &#39;GALAXY&#39;, &#39;GALAXY&#39;],</span>
-<span class="go">      dtype=object)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sdss</span><span class="o">.</span><span class="n">class_</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">(4613773,)</span>
+<p>Next, create an instance of the <cite>One2One</cite> pipeline, you need to provide the location
+of the <cite>astromlp-models/model_store</cite> directory where the actual models live,
+for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">One2One</span><span class="p">(</span><span class="n">model_store</span><span class="o">=</span><span class="s1">&#39;./astromlp-models/model_store&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Setup a dataset with data from the previous source, in this example the features are
-the band values, and the target in the redshift:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">sdss</span><span class="o">.</span><span class="n">ugriz</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">sdss</span><span class="o">.</span><span class="n">redshift</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ds</span>
-<span class="go">Dataset(features=(4613773, 5), target=(4613773,))</span>
+<p>The galaxies pipelines are based on SDSS data, so the input to the pipeline
+if an SDSS object identifier (<cite>objid</cite>), for example to process the object
+<a class="reference external" href="https://skyserver.sdss.org/dr17/VisualTools/explore/summary?id=1237648720693755918">1237648720693755918</a>
+using the selected pipeline run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="mi">1237648720693755918</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Setup a previously created untrained model given an unique identifier and fit the data:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s1">&#39;keras_ugriz_redshift&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">desc</span>
-<span class="go">&#39;Inputs: (None, 5) -&gt; Outputs: (None, 1)&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
-<span class="go">2021-11-10 12:20:16 | INFO: batch_size=64 epochs=10</span>
-<span class="gp">...</span>
-<span class="go">Epoch 1/10</span>
-<span class="go">5311/72091 [=&gt;............................] - ETA: 1:11 - loss: 214.0605 - mean_squared_error: 214.0605</span>
+<p>The <cite>result</cite> object is an instance of <code class="code docutils literal notranslate"><span class="pre">PipelineResult</span></code>, the outputs of the pipeline
+processing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span>
+<span class="go">PipelineResult(redshift=0.0869317390024662, smass=23.44926865895589,</span>
+<span class="go">subclass=&#39;STARFORMING&#39;, gz2c=&#39;ScR&#39;)</span>
 </pre></div>
 </div>
-<p>Once the model is trained it can be applied to new data, i.e. predict the redshift
-given band values:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">18.27583</span><span class="p">,</span> <span class="mf">19.274648</span><span class="p">,</span> <span class="mf">19.19848</span><span class="p">,</span> <span class="mf">16.38564</span><span class="p">,</span> <span class="mf">17.17455</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">(1, 5)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="go">array([[-0.27960014]], dtype=float32)</span>
-</pre></div>
-</div>
-<p>Models are instantiated using a backend, Keras by default, and the
-underlying model is always available in the <cite>model</cite> attribute:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">model</span>
-<span class="go">&lt;keras.engine.functional.Functional object at 0x159ab75e0&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="go">Model: &quot;keras_ugriz_redshift&quot;</span>
-<span class="go">_________________________________________________________________</span>
-<span class="go">Layer (type)                 Output Shape              Param #</span>
-<span class="go">=================================================================</span>
-<span class="go">input_8 (InputLayer)         [(None, 5)]               0</span>
-<span class="go">_________________________________________________________________</span>
-<span class="go">dense_45 (Dense)             (None, 32)                192</span>
-<span class="go">_________________________________________________________________</span>
-<span class="go">dense_46 (Dense)             (None, 16)                528</span>
-<span class="go">_________________________________________________________________</span>
-<span class="go">dense_47 (Dense)             (None, 8)                 136</span>
-<span class="go">_________________________________________________________________</span>
-<span class="go">dense_48 (Dense)             (None, 1)                 9</span>
-<span class="go">=================================================================</span>
-<span class="go">Total params: 865</span>
-<span class="go">Trainable params: 865</span>
-<span class="go">Non-trainable params: 0</span>
-<span class="go">_________________________________________________________________</span>
-</pre></div>
-</div>
-<p>More complex workflows can be achieved, let’s do some more imports:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astromlp</span> <span class="kn">import</span> <span class="n">Scaler</span><span class="p">,</span> <span class="n">Splitter</span><span class="p">,</span> <span class="n">Pipeline</span>
-</pre></div>
-</div>
-<p>A common operation before fitting the model to the actual data is to scale the
-values, we can create a new <cite>Scaler</cite> object that used the <cite>StandardScaler</cite>
-from scikit-learn by default:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span> <span class="o">=</span> <span class="n">Scaler</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span>
-<span class="go">Scaler(backend=StandardScaler())</span>
-</pre></div>
-</div>
-<p>We can also split the data into a train and validation set, to do this
-we can use a <cite>Splitter</cite> object:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">Splitter</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span>
-<span class="go">Splitter(test_size=0.2, random_state=None)</span>
-</pre></div>
-</div>
-<p>We need to recreate our model instance to tell it we want to use a validation
-set:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s1">&#39;keras_ugriz_redshift&#39;</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>And instead of manually applying all these operations we can create a pipeline
-specifying the individual steps, and apply this sequence of operations to the
-dataset:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">ml</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
-<span class="go">(...)</span>
-<span class="go">Epoch 1/10</span>
-<span class="go"> 3737/57673 [&gt;.............................] - ETA: 57s - loss: 0.5945 - mean_squared_error: 0.5945</span>
-</pre></div>
-</div>
-<p>Callbacks can be added after each step to perform any extra operations, for example
-save to file the <cite>Scaler</cite> instance to use in future data:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">Scaler</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my-scaler.pkl&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="available-data-sources-and-models">
-<h2>Available Data Sources and Models<a class="headerlink" href="#available-data-sources-and-models" title="Permalink to this headline"></a></h2>
-<p>Data sources:</p>
+<p>The <code class="code docutils literal notranslate"><span class="pre">PipelineResult</span></code> object implements other methods that provide extra data, namely:</p>
 <ul class="simple">
-<li><p><cite>sdss_specphoto</cite></p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">objid</span></code>: returns the SDSS object identifier;</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">obj</span></code>: returns some information about the object from SDSS data;</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">models</span></code>: returns the ensemble of models user;</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">map</span></code>: returns the list of results of applying each individual model for each output.</p></li>
 </ul>
-<p>Models:</p>
-<ul class="simple">
-<li><p><cite>keras_ugriz_redshift</cite></p></li>
-<li><p><cite>keras_ugriz_class</cite></p></li>
-</ul>
+<p>You can easily create new ensembles of modules using the <code class="code docutils literal notranslate"><span class="pre">MapReducPipeline</span></code> and passing the
+list of outputs and corresponding models. For example, to create a pipeline that computes
+the <cite>redshift</cite> using the <cite>i2r</cite> and <cite>f2r</cite> models:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astromlp.galaxies</span> <span class="kn">import</span> <span class="n">MapReducePipeline</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">MapReducePipeline</span><span class="p">({</span> <span class="s1">&#39;redshift&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;i2r&#39;</span><span class="p">,</span> <span class="s1">&#39;f2r&#39;</span><span class="p">]</span> <span class="p">})</span>
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="astromlp.html">astromlp package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="astromlp.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.classes">astromlp.classes module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.env">astromlp.env module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.utils">astromlp.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.galaxies">astromlp.galaxies module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.pipelines">astromlp.pipelines module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Data Sources</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="datasets.html#sdss">SDSS</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
 </ul>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
@@ -253,7 +163,7 @@ save to file the <cite>Scaler</cite> instance to use in future data:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, Nuno Ramos Carvalho.</p>
+    <p>&#169; Copyright 2022, Nuno Ramos Carvalho.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

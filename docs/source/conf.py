@@ -9,7 +9,7 @@ from astromlp import __version__
 # Project information
 
 project = 'astromlp'
-copyright = '2021, Nuno Ramos Carvalho'
+copyright = '2022, Nuno Ramos Carvalho'
 author = 'Nuno Ramos Carvalho'
 version = __version__
 

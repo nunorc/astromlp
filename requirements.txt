@@ -1,5 +1,2 @@
-pandas
-requests
-tqdm
+numpy
 tensorflow
-scikit-learn

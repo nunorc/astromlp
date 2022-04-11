@@ -4,26 +4,18 @@ astromlp package
 Submodules
 ----------
 
-astromlp.classes module
------------------------
+astromlp.galaxies module
+------------------------
 
-.. automodule:: astromlp.classes
+.. automodule:: astromlp.galaxies
    :members:
    :undoc-members:
    :show-inheritance:
 
-astromlp.env module
--------------------
+astromlp.pipelines module
+-------------------------
 
-.. automodule:: astromlp.env
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-astromlp.utils module
----------------------
-
-.. automodule:: astromlp.utils
+.. automodule:: astromlp.pipelines
    :members:
    :undoc-members:
    :show-inheritance:
