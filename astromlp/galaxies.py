@@ -18,11 +18,11 @@ class One2One(MapReducePipeline):
     """ Pipeline for processing SDSS galaxy object and a infer a set of properties using an ensemble of models.
 
         Attributes:
-            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models.git/model_store`
+            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models/model_store`
         Returns:
             :code:`PipelineResult`
     """
-    def __init__(self, model_store='./astromlp-models.git/model_store', helper=None):
+    def __init__(self, model_store='./astromlp-models/model_store', helper=None):
         models = {
             'redshift': ['i2r', 'f2r', 's2r', 'ss2r', 'b2r', 'w2r'],
             'smass': ['i2sm', 'f2sm', 's2sm', 'ss2sm', 'b2sm', 'w2sm'],
@@ -35,11 +35,11 @@ class CherryPicked(MapReducePipeline):
     """ Pipeline for processing SDSS galaxy object and a infer a set of properties using an ensemble of models.
 
         Attributes:
-            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models.git/model_store`
+            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models/model_store`
         Returns:
             :code:`PipelineResult`
     """
-    def __init__(self, model_store='./astromlp-models.git/model_store', helper=None):
+    def __init__(self, model_store='./astromlp-models/model_store', helper=None):
         models = {
             'redshift': ['s2r', 'ss2r', 'iFsSSbW2r'],
             'smass': ['f2sm'],
