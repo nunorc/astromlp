@@ -1,0 +1,3 @@
+[submodule "astromlp-models"]
+	path = astromlp-models
+	url = https://github.com/nunorc/astromlp-models
