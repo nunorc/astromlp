@@ -11,22 +11,42 @@ from .skyserver import SkyServer
 logger = logging.getLogger(__name__)
 
 class Helper:
-    def __init__(self, ds='../sdss-gs'):
-        self.FILES = ds
+    """ A helper class providing set of helper functions to deal with the
+        `SDSS Galaxy Subset <https://zenodo.org/record/6393488>`_ dataset,
+        henceforth refereed to as `sdss-ds`.
 
-        if not os.path.exists(self.FILES):
-            logger.warn(f'Dataset files directory not found: { self.FILES }')
+        Attributes:
+            ds (str): location of the `sdss-ds` dataset, detauls to `'../sdss-gs'`
+    """
+    def __init__(self, ds: str ='../sdss-gs'):
+        """ Constructor method """
+        self.ds = ds
+
+        if not os.path.exists(self.ds):
+            logger.warn(f'Dataset files directory not found: { self.ds }')
 
         self.df = None
-        _filename = os.path.join(self.FILES, 'data.csv')
+        _filename = os.path.join(self.ds, 'data.csv')
         if os.path.exists(_filename):
             self.df = read_csv(_filename)
         else:
             logger.warn(f'Data file not found: { _filename }')
 
-        self.skyserver = SkyServer()
+        self.ss = SkyServer()
 
     def ids_list(self, has_img=False, has_fits=False, has_spectra=False, has_ssel=False, has_bands=False, has_wise=False, has_gz2c=False):
+        """ Build a list of SDSS objects identifiers from the `sdss-ds` dataset.
+
+            Args:
+                has_img (bool): include identifier only if RGB image file is available, defaults to `False`
+                has_fits (bool): include identifier only if FITS data file is available, defaults to `False`
+                has_spectra (bool): include identifier only if spectra data file is available, defaults to `False`
+                has_ssel (bool): include identifier only if spectra selected bands data file is available, defaults to `False`
+                has_bands (bool): include identifier only if bands data is available, defaults to `False`
+                has_wise (bool): include identifier only if WISE data is available, defaults to `False`
+            Returns:
+                list of SDSS objects identifiers
+        """
         _df = self.df.copy()
 
         if has_bands:
@@ -49,13 +69,13 @@ class Helper:
         return _ids
 
     def _has_img(self, _id):
-        return os.path.exists(self.img_filename(_id))
+        return os.path.exists(self._img_filename(_id))
 
     def _has_fits(self, _id):
-        return os.path.exists(self.fits_filename(_id))
+        return os.path.exists(self._fits_filename(_id))
 
     def _has_spectra(self, _id):
-        filename = self.spectra_filename(_id)
+        filename = self._spectra_filename(_id)
         if os.path.exists(filename):
             _df = read_csv(filename)
             if len(_df)>0 and 'Wavelength' in _df.columns and 'BestFit' in _df.columns:
@@ -65,7 +85,7 @@ class Helper:
         return False
 
     def _has_ssel(self, _id):
-        filename = self.ssel_filename(_id)
+        filename = self._ssel_filename(_id)
         if os.path.exists(filename):
             _df = read_csv(filename)
             _x = _df['BestFit'].to_numpy()
@@ -74,19 +94,26 @@ class Helper:
 
         return False
 
-    def img_filename(self, objID, DIR='img'):
-        return os.path.join(self.FILES, DIR, str(objID)+'.jpg')
+    def _img_filename(self, objID, DIR='img'):
+        return os.path.join(self.ds, DIR, str(objID)+'.jpg')
 
-    def fits_filename(self, objID, DIR='fits'):
-        return os.path.join(self.FILES, DIR, str(objID)+'.npy')
+    def _fits_filename(self, objID, DIR='fits'):
+        return os.path.join(self.ds, DIR, str(objID)+'.npy')
 
-    def spectra_filename(self, objID, DIR='spectra'):
-        return os.path.join(self.FILES, DIR, str(objID)+'.csv')
+    def _spectra_filename(self, objID, DIR='spectra'):
+        return os.path.join(self.ds, DIR, str(objID)+'.csv')
 
-    def ssel_filename(self, objID, DIR='ssel'):
-        return os.path.join(self.FILES, DIR, str(objID)+'.csv')
+    def _ssel_filename(self, objID, DIR='ssel'):
+        return os.path.join(self.ds, DIR, str(objID)+'.csv')
 
     def get_obj(self, id):
+        """ Retrieve information for a SDSS object.
+
+            Args:
+                id (int): a SDSS object identifier
+            Returns:
+                a `Dict` containing proprieties available for the object from the `sdss-ds`
+        """
         if isinstance(id, str):
             id = int(id)
 
@@ -97,6 +124,14 @@ class Helper:
             return sl.iloc[0].to_dict()
 
     def y_list(self, ids, target):
+        """ Build a list of target data to use in the data grnerator for a continuous variable.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+                target (str): target variable
+            Returns:
+                a numpy array
+        """
         if target in ['redshift', 'stellarmass']:
             res = []
             for i in ids:
@@ -106,6 +141,15 @@ class Helper:
             return res
 
     def y_list_class(self, ids, target, classes):
+        """ Build a list of target data to use in the data grnerator for a class variable.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+                target (str): target variable
+                classes: classes object
+            Returns:
+                a numpy array, class set
+        """
         n = len(classes)
 
         y = []
@@ -122,33 +166,59 @@ class Helper:
         return y, classes
 
     def load_img(self, filename):
+        """ Load RGB image into a numpy array from file.
+
+            Args:
+                filename (str): RGB image filename
+            Returns:
+                a numpy array
+        """
         img = keras.load_img(filename)
         x = keras.img_to_array(img)/255
 
         return x
 
     def load_imgs(self, _ids):
+        """ Load list of RGB images into a numpy array given list of SDSS object identifiers.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+            Returns:
+                a numpy array
+        """
         X_img = []
 
         for i in _ids:
-            filename = self.img_filename(i)
-            # img = keras.load_img(filename)
-            # x = keras.img_to_array(img)/255
+            filename = self._img_filename(i)
             X_img.append(self.load_img(filename))
 
         return np.array(X_img)
 
     def load_fits(self, _ids):
+        """ Load list of FITS data into a numpy array given list of SDSS object identifiers.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+            Returns:
+                a numpy array
+        """
         X_fits = []
 
         for i in _ids:
-            filename = self.fits_filename(i)
+            filename = self._fits_filename(i)
             with open(filename, 'rb') as fin:
                 X_fits.append(np.load(fin))
 
         return np.array(X_fits)
 
     def load_spectra(self, filename):
+        """ Load spectra data into a numpy array from file.
+
+            Args:
+                filename (str): spectra data filename
+            Returns:
+                a numpy array
+        """
         if os.path.exists(filename):
             df = read_csv(filename)
             if len(df)>0 and 'Wavelength' in df.columns and 'BestFit' in df.columns:
@@ -161,16 +231,30 @@ class Helper:
         return None
 
     def load_spectras(self, ids):
+        """ Load list of spectra data into a numpy array given list of SDSS object identifiers.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+            Returns:
+                a numpy array
+        """
         X_spectra = []
 
         for i in ids:
-            x, _ = self.load_spectra(self.spectra_filename(i))
+            x, _ = self.load_spectra(self._spectra_filename(i))
             if x is not None:
                 X_spectra.append(x)
 
         return np.array(X_spectra)
 
     def load_ssel(self, filename):
+        """ Load spectra selected bands data into a numpy array from file.
+
+            Args:
+                filename (str): spectra data filename
+            Returns:
+                a numpy array
+        """
         if os.path.exists(filename):
             df = read_csv(filename)
             x = df['BestFit'].to_numpy()
@@ -180,16 +264,30 @@ class Helper:
         return None
 
     def load_ssels(self, ids):
+        """ Load list of spectra selected bands data into a numpy array given list of SDSS object identifiers.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+            Returns:
+                a numpy array
+        """
         X_ssel = []
 
         for i in ids:
-            x, _ = self.load_ssel(self.ssel_filename(i))
+            x, _ = self.load_ssel(self._ssel_filename(i))
             if x is not None:
                 X_ssel.append(x)
 
         return np.array(X_ssel)
 
     def load_bands(self, _ids):
+        """ Load list of bands data into a numpy array given list of SDSS object identifiers.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+            Returns:
+                a numpy array
+        """
         X_bands = []
 
         for i in _ids:
@@ -200,6 +298,13 @@ class Helper:
         return np.array(X_bands)
 
     def load_wises(self, _ids):
+        """ Load list of WISE data into a numpy array given list of SDSS object identifiers.
+
+            Args:
+                ids ([int]): list of SDSS object identifiers
+            Returns:
+                a numpy array
+        """
         X_wise = []
 
         for i in _ids:
@@ -209,12 +314,12 @@ class Helper:
 
         return np.array(X_wise)
 
-    def spectra_url(self, objid):
-        obj = self.get_obj(objid)
-
-        return f"https://dr16.sdss.org/optical/spectrum/view/data/format=csv/spec=lite?plateid={ obj['plate'] }&mjd={ obj['mjd'] }&fiberid={ obj['fiberid'] }"
-
     def random_id(self):
+        """ Return a random SDSS object identifier from the `sdss-ds` dataset.
+
+            Returns:
+                a random SDSS object identifier
+        """
         _ids = self.df['objid'].tolist()
 
         return random.choice(_ids)
@@ -245,15 +350,31 @@ class Helper:
         return r
 
     def save_img(self, obj, filename=None):
+        """ Retrieve and save RGB image for a given SDSS object.
+
+            Args:
+                obj: SDSS object
+                filename (str): optional filename
+            Returns:
+                a numpy array
+        """
         if filename is None:
             filename = self.helper.img_filename(obj['objid'])
 
         if os.path.exists(filename):
             return filename
 
-        return self.skyserver.save_jpeg(obj['objid'], filename, ra=obj['ra'], dec=obj['dec'], scale=0.2, width=150, height=150)
+        return self.ss.save_jpeg(obj['objid'], filename, ra=obj['ra'], dec=obj['dec'], scale=0.2, width=150, height=150)
 
     def save_fits(self, obj, filename=None, base_dir='./'):
+        """ Retrieve and save FITS data file for a given SDSS object.
+
+            Args:
+                obj: SDSS object
+                filename (str): optional filename
+            Returns:
+                a numpy array
+        """
         if filename is None:
             filename = self.helper.fits_filename(obj['objid'])
 
@@ -313,8 +434,16 @@ class Helper:
         return f"https://dr16.sdss.org/optical/spectrum/view/data/format=csv/spec=lite?plateid={ obj['plate'] }&mjd={ obj['mjd'] }&fiberid={ obj['fiberid'] }"
 
     def save_spectra(self, obj, filename=None):
+        """ Retrieve and save spectra data file for a given SDSS object.
+
+            Args:
+                obj: SDSS object
+                filename (str): optional filename
+            Returns:
+                a numpy array
+        """
         if filename is None:
-            filename = self.spectra_filename(obj['objid'])
+            filename = self._spectra_filename(obj['objid'])
 
         if os.path.exists(filename):
             return filename
@@ -330,14 +459,22 @@ class Helper:
         return None
 
     def save_ssel(self, obj, filename=None, spectra_filename=None):
+        """ Retrieve and save spectra selected bands data file for a given SDSS object.
+
+            Args:
+                obj: SDSS object
+                filename (str): optional filename
+            Returns:
+                a numpy array
+        """
         if filename is None:
-            filename = self.ssel_filename(obj['objid'])
+            filename = self._ssel_filename(obj['objid'])
 
         if os.path.exists(filename):
             return filename
 
         if spectra_filename is None:
-            spectra_filename = self.spectra_filename(obj['objid'])
+            spectra_filename = self._spectra_filename(obj['objid'])
         if not os.path.exists(spectra_filename):
             self.save_spectra(obj, filename=spectra_filename)
 

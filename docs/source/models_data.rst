@@ -1,0 +1,19 @@
+
+Models & Datasets
+==================
+
+Models
+------------------
+
+The collection of models used in the pipelines ensembles are available
+from the `astomlp-models <https://github.com/nunorc/astromlp-models>`_
+repository.
+
+Datasets
+------------------
+
+Datasets used to fit the models used in the pipelines ensembles:
+
+- The `SDSS Galaxy Subset <https://zenodo.org/record/6393488>`_ dataset is used to train and explore the models availble for charaterinzg galaxies, which is a subset of the data avaible from the `Sloan Digital Sky Survey <https://www.sdss.org/>`_.
+
+

@@ -1,46 +1,6 @@
 
-astromlp
-=====================================
-
-**Experimental and under development!**
-
-A framework for building deep learning models and pipelines for astrophysics applications.
-You can explore the available pipelines and related models online from the `astromlp-app <https://nunorc.github.io/astromlp-app/>`_.
-
-`Repository <https://github.com/nunorc/astromlp>`_ | `Documentation <https://nunorc.github.io/astromlp>`_
-
-Installation
--------------------------------------
-
-Install package from the git repository:
-
-.. code-block:: bash
-
-    $ pip install git+https://github.com/nunorc/astromlp@master
-
-The collection of models available from the
-`astromlp-models <https://github.com/nunorc/astromlp-models>`_ repository is required,
-quick clone:
-
-.. code-block:: bash
-
-    $ git clone https://github.com/nunorc/astromlp-models.git
-
-And set the :code:`model_store` accordingly when necessary.
-
-For development and exploring just clone **astromlp** recursively:
-
-.. code-block:: bash
-
-    $ git clone --recurse-submodules https://github.com/nunorc/astromlp.git
-
-and run code from the repository root, **astromlp-models** is set as a `submodule` of the
-**astromlp** repository, and this is the default location for :code:`model_store` when used.
-Just make sure all the requirements are available in your environment, check the
-`Installation <https://nunorc.github.io/astromlp/html/install.html>`_ section for details.
-
 Quick Start
--------------------------------------
+======================
 
 Import pipelines for a specific topic, for example to import 
 the :code:`One2One` and :code:`CherryPicked` pipelines for galaxies characterization:
@@ -90,4 +50,3 @@ the `redshift` using the `i2r` and `f2r` models:
 
     >>> from astromlp.galaxies import MapReducePipeline
     >>> pipeline = MapReducePipeline({ 'redshift': ['i2r', 'f2r'] })
-

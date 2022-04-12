@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>astromlp &mdash; astromlp  documentation</title>
+  <title>Installation &mdash; astromlp  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="astromlp package" href="astromlp.html" />
-    <link rel="prev" title="Models &amp; Datasets" href="models_data.html" /> 
+    <link rel="next" title="Quick Start" href="quick_start.html" />
+    <link rel="prev" title="astromlp" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,14 +42,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">astromlp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html">astromlp package</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a></li>
 </ul>
 
         </div>
@@ -66,9 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>astromlp</li>
+      <li>Installation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -76,32 +73,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="astromlp">
-<h1>astromlp<a class="headerlink" href="#astromlp" title="Permalink to this headline"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="astromlp.html">astromlp package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.sdss.html">astromlp.sdss package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss.datagen">astromlp.sdss.datagen module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss.helper">astromlp.sdss.helper module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss.predictor">astromlp.sdss.predictor module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss.shared">astromlp.sdss.shared module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss.skyserver">astromlp.sdss.skyserver module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss.utils">astromlp.sdss.utils module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html#module-astromlp.sdss">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html#module-astromlp.galaxies">astromlp.galaxies module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html#module-astromlp.pipelines">astromlp.pipelines module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html#module-astromlp">Module contents</a></li>
-</ul>
-</li>
-</ul>
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<p>Install package from the git repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/nunorc/astromlp@master
+</pre></div>
+</div>
+<p>The collection of models available from the
+<a class="reference external" href="https://github.com/nunorc/astromlp-models">astromlp-models</a> repository is required,
+quick clone:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nunorc/astromlp-models.git
+</pre></div>
+</div>
+<p>And set the <code class="code docutils literal notranslate"><span class="pre">model_store</span></code> accordingly when necessary.</p>
+<p>For development and exploring just clone <strong>astromlp</strong> recursively:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://github.com/nunorc/astromlp.git
+</pre></div>
+</div>
+<p>and run code from the repository root, <strong>astromlp-models</strong> is set as a <cite>submodule</cite> of the
+<strong>astromlp</strong> repository, and this is the default location for <code class="code docutils literal notranslate"><span class="pre">model_store</span></code> when used.
+Just make sure all the requirements are available in your environment.</p>
+<p>Install the requirements using for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://github.com/nunorc/ImageCutter">ImageCutter</a> package is required for saving
+FITS data files. the version in GitHub
+does not work with the more recent FITS data available from SDSS, so consider installing
+this <a class="reference external" href="https://github.com/nunorc/ImageCutter">fork</a>  from the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pip install git+https://github.com/nunorc/ImageCutter.git
+</pre></div>
 </div>
 </section>
 
@@ -109,8 +110,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="models_data.html" class="btn btn-neutral float-left" title="Models &amp; Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="astromlp.html" class="btn btn-neutral float-right" title="astromlp package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="astromlp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -39,6 +39,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a></li>
 </ul>
 
@@ -73,7 +77,6 @@
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
- | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
@@ -84,6 +87,7 @@
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
+ | <a href="#X"><strong>X</strong></a>
  | <a href="#Y"><strong>Y</strong></a>
  
 </div>
@@ -168,6 +172,12 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.skyserver.SkyServer.base_url">base_url (astromlp.sdss.skyserver.SkyServer attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.datagen.DataGen.batch_size">batch_size (astromlp.sdss.datagen.DataGen attribute)</a>
+</li>
       <li><a href="astromlp.sdss.html#astromlp.sdss.utils.build_datagens">build_datagens() (in module astromlp.sdss.utils)</a>
 </li>
   </ul></td>
@@ -187,12 +197,8 @@
       <li><a href="astromlp.sdss.html#astromlp.sdss.datagen.DataGen">DataGen (class in astromlp.sdss.datagen)</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.fits_filename">fits_filename() (astromlp.sdss.helper.Helper method)</a>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.ds">ds (astromlp.sdss.helper.Helper attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -224,11 +230,11 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.ids_list">ids_list() (astromlp.sdss.helper.Helper method)</a>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.datagen.DataGen.ids">ids (astromlp.sdss.datagen.DataGen attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.img_filename">img_filename() (astromlp.sdss.helper.Helper method)</a>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.ids_list">ids_list() (astromlp.sdss.helper.Helper method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -263,6 +269,20 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="astromlp.html#astromlp.pipelines.MapReducePipeline">MapReducePipeline (class in astromlp.pipelines)</a>
+</li>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.predictor.Predictor.model">model (astromlp.sdss.predictor.Predictor attribute)</a>
+</li>
+      <li><a href="astromlp.html#astromlp.galaxies.CherryPicked.model_store">model_store (astromlp.galaxies.CherryPicked attribute)</a>
+
+      <ul>
+        <li><a href="astromlp.html#astromlp.galaxies.One2One.model_store">(astromlp.galaxies.One2One attribute)</a>
+</li>
+        <li><a href="astromlp.html#astromlp.pipelines.MapReducePipeline.model_store">(astromlp.pipelines.MapReducePipeline attribute)</a>
+</li>
+        <li><a href="astromlp.sdss.html#astromlp.sdss.predictor.Predictor.model_store">(astromlp.sdss.predictor.Predictor attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="astromlp.html#astromlp.pipelines.MapReducePipeline.models">models (astromlp.pipelines.MapReducePipeline attribute)</a>
 </li>
       <li>
     module
@@ -330,6 +350,10 @@
       <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.random_id">random_id() (astromlp.sdss.helper.Helper method)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="astromlp.html#astromlp.pipelines.PipelineResult.result">result (astromlp.pipelines.PipelineResult attribute)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
@@ -341,19 +365,13 @@
 </li>
       <li><a href="astromlp.sdss.html#astromlp.sdss.skyserver.SkyServer.save_jpeg">save_jpeg() (astromlp.sdss.skyserver.SkyServer method)</a>
 </li>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.save_spectra">save_spectra() (astromlp.sdss.helper.Helper method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.save_spectra">save_spectra() (astromlp.sdss.helper.Helper method)</a>
+</li>
       <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.save_ssel">save_ssel() (astromlp.sdss.helper.Helper method)</a>
 </li>
       <li><a href="astromlp.sdss.html#astromlp.sdss.skyserver.SkyServer">SkyServer (class in astromlp.sdss.skyserver)</a>
-</li>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.spectra_filename">spectra_filename() (astromlp.sdss.helper.Helper method)</a>
-</li>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.spectra_url">spectra_url() (astromlp.sdss.helper.Helper method)</a>
-</li>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.ssel_filename">ssel_filename() (astromlp.sdss.helper.Helper method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -370,13 +388,23 @@
   </ul></td>
 </tr></table>
 
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.datagen.DataGen.x">x (astromlp.sdss.datagen.DataGen attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="Y">Y</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.y_list">y_list() (astromlp.sdss.helper.Helper method)</a>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.datagen.DataGen.y">y (astromlp.sdss.datagen.DataGen attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.y_list">y_list() (astromlp.sdss.helper.Helper method)</a>
+</li>
       <li><a href="astromlp.sdss.html#astromlp.sdss.helper.Helper.y_list_class">y_list_class() (astromlp.sdss.helper.Helper method)</a>
 </li>
   </ul></td>

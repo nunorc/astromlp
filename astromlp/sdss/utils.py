@@ -8,17 +8,41 @@ import numpy as np
 from .datagen import DataGen
 
 def train_test_split(ids):
+    """ Split list of ids into a training and test sets.
+
+        Args:
+            ids ([int]): a list of SDSS object identifiers
+        Returns:
+            a tuple of lists
+    """
     IDs_train, IDs_test = sk_train_test_split(ids, train_size=0.75)
 
     return IDs_train, IDs_test
 
 def train_val_test_split(ids):
+    """ Split list of ids into a training, validation and test sets.
+
+        Args:
+            ids ([int]): a list of SDSS object identifiers
+        Returns:
+            a tuple of lists
+    """
     IDs_train, IDs_rest = sk_train_test_split(ids, train_size=0.7)
     IDs_val, IDs_test = sk_train_test_split(IDs_rest, train_size=0.5)
 
     return IDs_train, IDs_val, IDs_test
 
 def build_datagens(ids, x=None, y=None, batch_size=32, helper=None):
+    """ Build a data generator for a training, validatin and test sets.
+
+        Args:
+            ids ([int]): a list of SDSS object identifiers
+            x ([str]): list of input variables (eg. `img`, `spectra`)
+            y ([str]): list of output variables (eg. `redshift`, `subclass`)
+            batch_size (int): batch size, defaults to `32`
+        Returns:
+            a tuple of datagenerators
+    """
     ids_train, ids_val, ids_test = train_val_test_split(ids)
 
     train_gen = DataGen(ids_train, x=x, y=y, batch_size=batch_size, helper=helper)
@@ -31,6 +55,11 @@ def _moving_average(x, w=5):
     return np.convolve(x, np.ones(w), 'valid') / w
 
 def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
+    """ Create plots give a tensorflow history object.
+
+        Args:
+            history: tensorflow history object
+    """
     fig = plt.figure(figsize=(18, 6))
     fig.set_facecolor('white')
     plt.ioff()
@@ -114,6 +143,12 @@ def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
     plt.close(fig)
 
 def my_callbacks(name=None, path=None, check_point=False, monitor='val_loss', mode='min', tensor_board=True):
+    """ Return a list of Keras callbacks.
+
+        Args:
+            name (str): model name
+            path (str): model path
+    """
     log_dir = os.path.join('logs', datetime.datetime.now().strftime("%Y-%m-%d"))
 
     my_callbacks = []

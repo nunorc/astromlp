@@ -14,7 +14,13 @@ from .skyserver import SkyServer
 from .shared import CLASSES
 
 class Predictor:
-    def __init__(self, model, model_store='../astromlp-models.git/model_store', x=None, y=None, helper=None, tmp_dir='/tmp/mysdss'):
+    """ A predictor class for predicting data using `astromlp-models <https://github.com/nunorc/astromlp-models>`_.
+
+        Attributes:
+            model (str): the astromlp-model identifier (eg, `i2r`, `f2s`)
+            model_store (str): location of the model store, defaults to `'./astromlp-models/model_store'`
+    """
+    def __init__(self, model, model_store='./astromlp-models/model_store', x=None, y=None, helper=None, tmp_dir='/tmp/mysdss'):
         if helper:
             self.helper = helper
         else:
@@ -50,6 +56,14 @@ class Predictor:
         pathlib.Path(self.tmp_dir).mkdir(parents=True, exist_ok=True)
 
     def predict(self, objid, extra=True, return_input=True):
+        """ Perform a prediction on a model for a SDSS object identifier.
+
+            Args:
+                objid (id): SDSS object identifier
+            Returns:
+                an object where the key `output` contains the resulting prediction
+
+        """
         obj = self.skyserver.get_obj(objid)
         if obj is None:
             return None

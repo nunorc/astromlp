@@ -4,6 +4,11 @@ import os, requests, logging
 logger = logging.getLogger(__name__)
 
 class SkyServer:
+    """ Helper class to perform operations using the `SkyServer Web Service <http://skyserver.sdss.org>`_.
+
+        Attributes:
+            base_url (str): SkyServer API base URL
+    """
     def __init__(self, base_url='http://skyserver.sdss.org/dr16/SkyServerWS'):
         self.base_url = base_url
 
@@ -11,6 +16,14 @@ class SkyServer:
         return f"{ self.base_url}{ action }"
 
     def get_obj(self, objid, wise=True):
+        """ Retrieve information for a SDSS object.
+
+            Args:
+                objid (int): a SDSS object identifier
+                wise (bool): include WISE data, defaults to `False`
+            Returns:
+                a `Dict` containing proprieties available for the object from the `sdss-ds`
+        """
         obj = None
 
         # SpecPhoto data
@@ -40,6 +53,18 @@ class SkyServer:
         return obj
 
     def save_jpeg(self, objid, filename, ra=None, dec=None, scale=0.2, width=150, height=150):
+        """ Save RGB image in JPEG format for a given SDSS object identifier.
+
+            Args:
+                objid (int): a SDSS object identifier
+                filename (str): RG image filename
+                scale (float): scale to use, defaults to `0.2`
+                width (int): image width, defaults to `150`
+                height (int): image height, defaults to `150`
+                wise (bool): include WISE data, defaults to `False`
+            Returns:
+                RGB image filename
+        """
         if os.path.exists(filename):
             return filename
 

@@ -41,6 +41,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">astromlp</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="astromlp.html">astromlp package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="astromlp.html#subpackages">Subpackages</a><ul class="current">
@@ -92,8 +96,53 @@
 <span id="astromlp-sdss-datagen-module"></span><h2>astromlp.sdss.datagen module<a class="headerlink" href="#module-astromlp.sdss.datagen" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.datagen.</span></span><span class="sig-name descname"><span class="pre">DataGen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['img',</span> <span class="pre">'spectra',</span> <span class="pre">'bands']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['redshift',</span> <span class="pre">'subclass']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'gz2c':</span> <span class="pre">['A',</span> <span class="pre">'Ec',</span> <span class="pre">'Ei',</span> <span class="pre">'Er',</span> <span class="pre">'SBa',</span> <span class="pre">'SBaR',</span> <span class="pre">'SBb',</span> <span class="pre">'SBbR',</span> <span class="pre">'SBc',</span> <span class="pre">'SBcR',</span> <span class="pre">'SBd',</span> <span class="pre">'SBdR',</span> <span class="pre">'Sa',</span> <span class="pre">'SaR',</span> <span class="pre">'Sb',</span> <span class="pre">'SbR',</span> <span class="pre">'Sc',</span> <span class="pre">'ScR',</span> <span class="pre">'Sd',</span> <span class="pre">'SdR',</span> <span class="pre">'Seb',</span> <span class="pre">'Sen',</span> <span class="pre">'Ser'],</span> <span class="pre">'subclass':</span> <span class="pre">['AGN',</span> <span class="pre">'BROADLINE',</span> <span class="pre">'STARBURST',</span> <span class="pre">'STARFORMING']}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.datagen.</span></span><span class="sig-name descname"><span class="pre">DataGen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'gz2c':</span> <span class="pre">['A',</span> <span class="pre">'Ec',</span> <span class="pre">'Ei',</span> <span class="pre">'Er',</span> <span class="pre">'SBa',</span> <span class="pre">'SBaR',</span> <span class="pre">'SBb',</span> <span class="pre">'SBbR',</span> <span class="pre">'SBc',</span> <span class="pre">'SBcR',</span> <span class="pre">'SBd',</span> <span class="pre">'SBdR',</span> <span class="pre">'Sa',</span> <span class="pre">'SaR',</span> <span class="pre">'Sb',</span> <span class="pre">'SbR',</span> <span class="pre">'Sc',</span> <span class="pre">'ScR',</span> <span class="pre">'Sd',</span> <span class="pre">'SdR',</span> <span class="pre">'Seb',</span> <span class="pre">'Sen',</span> <span class="pre">'Ser'],</span> <span class="pre">'subclass':</span> <span class="pre">['AGN',</span> <span class="pre">'BROADLINE',</span> <span class="pre">'STARBURST',</span> <span class="pre">'STARFORMING']}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.utils.data_utils.Sequence</span></code></p>
+<p>A data generator to use the <a class="reference external" href="https://zenodo.org/record/6393488">SDSS Galaxy Subset</a> dataset with <a class="reference external" href="https://keras.io/">Keras</a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen.ids">
+<span class="sig-name descname"><span class="pre">ids</span></span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen.ids" title="Permalink to this definition"></a></dt>
+<dd><p>list of SDSS object identifiers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen.x" title="Permalink to this definition"></a></dt>
+<dd><p>list of input variables (eg. <cite>img</cite>, <cite>spectra</cite>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen.y" title="Permalink to this definition"></a></dt>
+<dd><p>list of output variables (eg. <cite>redshift</cite>, <cite>subclass</cite>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen.batch_size">
+<span class="sig-name descname"><span class="pre">batch_size</span></span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen.batch_size" title="Permalink to this definition"></a></dt>
+<dd><p>batch size, defaults to <cite>64</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen.on_epoch_end">
 <span class="sig-name descname"><span class="pre">on_epoch_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen.on_epoch_end" title="Permalink to this definition"></a></dt>
@@ -107,122 +156,296 @@
 <span id="astromlp-sdss-helper-module"></span><h2>astromlp.sdss.helper module<a class="headerlink" href="#module-astromlp.sdss.helper" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.helper.</span></span><span class="sig-name descname"><span class="pre">Helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../sdss-gs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.helper.</span></span><span class="sig-name descname"><span class="pre">Helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'../sdss-gs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.fits_filename">
-<span class="sig-name descname"><span class="pre">fits_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fits'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.fits_filename" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<p>A helper class providing set of helper functions to deal with the
+<a class="reference external" href="https://zenodo.org/record/6393488">SDSS Galaxy Subset</a> dataset,
+henceforth refereed to as <cite>sdss-ds</cite>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.ds">
+<span class="sig-name descname"><span class="pre">ds</span></span><a class="headerlink" href="#astromlp.sdss.helper.Helper.ds" title="Permalink to this definition"></a></dt>
+<dd><p>location of the <cite>sdss-ds</cite> dataset, detauls to <cite>‘../sdss-gs’</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.get_obj">
 <span class="sig-name descname"><span class="pre">get_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.get_obj" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve information for a SDSS object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – a SDSS object identifier</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a <cite>Dict</cite> containing proprieties available for the object from the <cite>sdss-ds</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.ids_list">
 <span class="sig-name descname"><span class="pre">ids_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">has_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_fits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_ssel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_wise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_gz2c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.ids_list" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.img_filename">
-<span class="sig-name descname"><span class="pre">img_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'img'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.img_filename" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Build a list of SDSS objects identifiers from the <cite>sdss-ds</cite> dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>has_img</strong> (<em>bool</em>) – include identifier only if RGB image file is available, defaults to <cite>False</cite></p></li>
+<li><p><strong>has_fits</strong> (<em>bool</em>) – include identifier only if FITS data file is available, defaults to <cite>False</cite></p></li>
+<li><p><strong>has_spectra</strong> (<em>bool</em>) – include identifier only if spectra data file is available, defaults to <cite>False</cite></p></li>
+<li><p><strong>has_ssel</strong> (<em>bool</em>) – include identifier only if spectra selected bands data file is available, defaults to <cite>False</cite></p></li>
+<li><p><strong>has_bands</strong> (<em>bool</em>) – include identifier only if bands data is available, defaults to <cite>False</cite></p></li>
+<li><p><strong>has_wise</strong> (<em>bool</em>) – include identifier only if WISE data is available, defaults to <cite>False</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of SDSS objects identifiers</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_bands">
 <span class="sig-name descname"><span class="pre">load_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_bands" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load list of bands data into a numpy array given list of SDSS object identifiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_fits">
 <span class="sig-name descname"><span class="pre">load_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_fits" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load list of FITS data into a numpy array given list of SDSS object identifiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_img">
 <span class="sig-name descname"><span class="pre">load_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_img" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load RGB image into a numpy array from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – RGB image filename</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_imgs">
 <span class="sig-name descname"><span class="pre">load_imgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_imgs" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load list of RGB images into a numpy array given list of SDSS object identifiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_spectra">
 <span class="sig-name descname"><span class="pre">load_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_spectra" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load spectra data into a numpy array from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – spectra data filename</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_spectras">
 <span class="sig-name descname"><span class="pre">load_spectras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_spectras" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load list of spectra data into a numpy array given list of SDSS object identifiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_ssel">
 <span class="sig-name descname"><span class="pre">load_ssel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_ssel" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load spectra selected bands data into a numpy array from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filename</strong> (<em>str</em>) – spectra data filename</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_ssels">
 <span class="sig-name descname"><span class="pre">load_ssels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_ssels" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load list of spectra selected bands data into a numpy array given list of SDSS object identifiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_wises">
 <span class="sig-name descname"><span class="pre">load_wises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_wises" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Load list of WISE data into a numpy array given list of SDSS object identifiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.random_id">
 <span class="sig-name descname"><span class="pre">random_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.random_id" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Return a random SDSS object identifier from the <cite>sdss-ds</cite> dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a random SDSS object identifier</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_fits">
 <span class="sig-name descname"><span class="pre">save_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_fits" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve and save FITS data file for a given SDSS object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – SDSS object</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – optional filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_img">
 <span class="sig-name descname"><span class="pre">save_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_img" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve and save RGB image for a given SDSS object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – SDSS object</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – optional filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_spectra">
 <span class="sig-name descname"><span class="pre">save_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_spectra" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve and save spectra data file for a given SDSS object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – SDSS object</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – optional filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_ssel">
 <span class="sig-name descname"><span class="pre">save_ssel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectra_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_ssel" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.spectra_filename">
-<span class="sig-name descname"><span class="pre">spectra_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectra'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.spectra_filename" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.spectra_url">
-<span class="sig-name descname"><span class="pre">spectra_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.spectra_url" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.ssel_filename">
-<span class="sig-name descname"><span class="pre">ssel_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ssel'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.ssel_filename" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve and save spectra selected bands data file for a given SDSS object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> – SDSS object</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – optional filename</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.y_list">
 <span class="sig-name descname"><span class="pre">y_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.y_list" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Build a list of target data to use in the data grnerator for a continuous variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – target variable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.y_list_class">
 <span class="sig-name descname"><span class="pre">y_list_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.y_list_class" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Build a list of target data to use in the data grnerator for a class variable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – list of SDSS object identifiers</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – target variable</p></li>
+<li><p><strong>classes</strong> – classes object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a numpy array, class set</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -231,12 +454,44 @@
 <span id="astromlp-sdss-predictor-module"></span><h2>astromlp.sdss.predictor module<a class="headerlink" href="#module-astromlp.sdss.predictor" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="astromlp.sdss.predictor.Predictor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.predictor.</span></span><span class="sig-name descname"><span class="pre">Predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmp_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/tmp/mysdss'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.predictor.</span></span><span class="sig-name descname"><span class="pre">Predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./astromlp-models/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmp_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/tmp/mysdss'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A predictor class for predicting data using <a class="reference external" href="https://github.com/nunorc/astromlp-models">astromlp-models</a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.predictor.Predictor.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor.model" title="Permalink to this definition"></a></dt>
+<dd><p>the astromlp-model identifier (eg, <cite>i2r</cite>, <cite>f2s</cite>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.predictor.Predictor.model_store">
+<span class="sig-name descname"><span class="pre">model_store</span></span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor.model_store" title="Permalink to this definition"></a></dt>
+<dd><p>location of the model store, defaults to <cite>‘./astromlp-models/model_store’</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.predictor.Predictor.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor.predict" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Perform a prediction on a model for a SDSS object identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>objid</strong> (<em>id</em>) – SDSS object identifier</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>an object where the key <cite>output</cite> contains the resulting prediction</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -250,15 +505,55 @@
 <dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.skyserver.</span></span><span class="sig-name descname"><span class="pre">SkyServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http://skyserver.sdss.org/dr16/SkyServerWS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class to perform operations using the <a class="reference external" href="http://skyserver.sdss.org">SkyServer Web Service</a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer.base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer.base_url" title="Permalink to this definition"></a></dt>
+<dd><p>SkyServer API base URL</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer.get_obj">
 <span class="sig-name descname"><span class="pre">get_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer.get_obj" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Retrieve information for a SDSS object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objid</strong> (<em>int</em>) – a SDSS object identifier</p></li>
+<li><p><strong>wise</strong> (<em>bool</em>) – include WISE data, defaults to <cite>False</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a <cite>Dict</cite> containing proprieties available for the object from the <cite>sdss-ds</cite></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer.save_jpeg">
 <span class="sig-name descname"><span class="pre">save_jpeg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">150</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">150</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer.save_jpeg" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Save RGB image in JPEG format for a given SDSS object identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objid</strong> (<em>int</em>) – a SDSS object identifier</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – RG image filename</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – scale to use, defaults to <cite>0.2</cite></p></li>
+<li><p><strong>width</strong> (<em>int</em>) – image width, defaults to <cite>150</cite></p></li>
+<li><p><strong>height</strong> (<em>int</em>) – image height, defaults to <cite>150</cite></p></li>
+<li><p><strong>wise</strong> (<em>bool</em>) – include WISE data, defaults to <cite>False</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>RGB image filename</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -268,32 +563,78 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.build_datagens">
 <span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">build_datagens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.build_datagens" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Build a data generator for a training, validatin and test sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – a list of SDSS object identifiers</p></li>
+<li><p><strong>x</strong> (<em>[</em><em>str</em><em>]</em>) – list of input variables (eg. <cite>img</cite>, <cite>spectra</cite>)</p></li>
+<li><p><strong>y</strong> (<em>[</em><em>str</em><em>]</em>) – list of output variables (eg. <cite>redshift</cite>, <cite>subclass</cite>)</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em>) – batch size, defaults to <cite>32</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of datagenerators</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.history_fit_plots">
 <span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">history_fit_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./model_plots'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.history_fit_plots" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Create plots give a tensorflow history object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> – tensorflow history object</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.my_callbacks">
 <span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">my_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'val_loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_board</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.my_callbacks" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Return a list of Keras callbacks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – model name</p></li>
+<li><p><strong>path</strong> (<em>str</em>) – model path</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.train_test_split">
 <span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">train_test_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.train_test_split" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Split list of ids into a training and test sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – a list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of lists</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.train_val_test_split">
 <span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">train_val_test_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.train_val_test_split" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Split list of ids into a training, validation and test sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ids</strong> (<em>[</em><em>int</em><em>]</em>) – a list of SDSS object identifiers</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a tuple of lists</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-astromlp.sdss">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-astromlp.sdss" title="Permalink to this headline"></a></h2>
-<p>sdss init</p>
 </section>
 </section>
 

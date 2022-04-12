@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>astromlp &mdash; astromlp  documentation</title>
+  <title>Quick Start &mdash; astromlp  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="install.html" /> 
+    <link rel="next" title="Pipelines" href="pipelines.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -26,7 +27,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> astromlp
+            <a href="index.html" class="icon icon-home"> astromlp
           </a>
               <div class="version">
                 0.0.1
@@ -40,9 +41,9 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a></li>
@@ -54,17 +55,17 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">astromlp</a>
+          <a href="index.html">astromlp</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>astromlp</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Quick Start</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/quick_start.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -72,36 +73,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="astromlp">
-<h1>astromlp<a class="headerlink" href="#astromlp" title="Permalink to this headline"></a></h1>
-<p><strong>Experimental and under development!</strong></p>
-<p>A framework for building deep learning models and pipelines for astrophysics applications.
-You can explore the available pipelines and related models online from the <a class="reference external" href="https://nunorc.github.io/astromlp-app/">astromlp-app</a>.</p>
-<p><a class="reference external" href="https://github.com/nunorc/astromlp">Repository</a> | <a class="reference external" href="https://nunorc.github.io/astromlp">Documentation</a></p>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
-<p>Install package from the git repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/nunorc/astromlp@master
-</pre></div>
-</div>
-<p>The collection of models available from the
-<a class="reference external" href="https://github.com/nunorc/astromlp-models">astromlp-models</a> repository is required,
-quick clone:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/nunorc/astromlp-models.git
-</pre></div>
-</div>
-<p>And set the <code class="code docutils literal notranslate"><span class="pre">model_store</span></code> accordingly when necessary.</p>
-<p>For development and exploring just clone <strong>astromlp</strong> recursively:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone --recurse-submodules https://github.com/nunorc/astromlp.git
-</pre></div>
-</div>
-<p>and run code from the repository root, <strong>astromlp-models</strong> is set as a <cite>submodule</cite> of the
-<strong>astromlp</strong> repository, and this is the default location for <code class="code docutils literal notranslate"><span class="pre">model_store</span></code> when used.
-Just make sure all the requirements are available in your environment, check the
-<a class="reference external" href="https://nunorc.github.io/astromlp/html/install.html">Installation</a> section for details.</p>
-</section>
-<section id="quick-start">
-<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
+  <section id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h1>
 <p>Import pipelines for a specific topic, for example to import
 the <code class="code docutils literal notranslate"><span class="pre">One2One</span></code> and <code class="code docutils literal notranslate"><span class="pre">CherryPicked</span></code> pipelines for galaxies characterization:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astromlp.galaxies</span> <span class="kn">import</span> <span class="n">One2One</span><span class="p">,</span> <span class="n">CherryPicked</span>
@@ -141,44 +114,14 @@ the <cite>redshift</cite> using the <cite>i2r</cite> and <cite>f2r</cite> models
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">MapReducePipeline</span><span class="p">({</span> <span class="s1">&#39;redshift&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;i2r&#39;</span><span class="p">,</span> <span class="s1">&#39;f2r&#39;</span><span class="p">]</span> <span class="p">})</span>
 </pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pipelines.html#for-galaxies">For Galaxies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="models_data.html#models">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="models_data.html#datasets">Datasets</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="astromlp.html">astromlp package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="astromlp.sdss.html">astromlp.sdss package</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.galaxies">astromlp.galaxies module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.pipelines">astromlp.pipelines module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp">Module contents</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pipelines.html" class="btn btn-neutral float-right" title="Pipelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

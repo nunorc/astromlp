@@ -8,9 +8,16 @@ from .shared import CLASSES, SM_FACTOR
 
 logger = logging.getLogger(__name__)
 
-# batch data generator
 class DataGen(tf.keras.utils.Sequence):
-    def __init__(self, ids, x=['img','spectra','bands'], y=['redshift', 'subclass'], classes=CLASSES, batch_size=64, helper=None):
+    """ A data generator to use the `SDSS Galaxy Subset <https://zenodo.org/record/6393488>`_ dataset with `Keras <https://keras.io/>`_.
+
+        Attributes:
+            ids (str): list of SDSS object identifiers
+            x ([str]): list of input variables (eg. `img`, `spectra`)
+            y ([str]): list of output variables (eg. `redshift`, `subclass`)
+            batch_size (int): batch size, defaults to `64`
+    """
+    def __init__(self, ids, x=[], y=[], classes=CLASSES, batch_size=64, helper=None):
         self.batch_size = batch_size
         self.ids = ids
         self.x = x

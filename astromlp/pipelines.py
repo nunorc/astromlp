@@ -13,6 +13,12 @@ from .sdss.skyserver import SkyServer
 logger = logging.getLogger(__name__)
 
 class PipelineResult:
+    """ Class for storing the result of processing an object using a pipeline for
+        processing SDSS galaxy object and a infer a set of properties using an ensemble of models.
+
+        Attributes:
+            result (object): location of the astromlp-models model store, detaults to `./astromlp-models.git/model_store`
+    """
     def __init__(self, result):
         self.objid = result['objid']
         self.models = result['models']
@@ -37,7 +43,13 @@ class PipelineResult:
         return ", ".join(vals)
 
 class MapReducePipeline:
-    def __init__(self, models, model_store='../astromlp-models.git/model_store', helper=None):
+    """ Base class for processing an object using a map-reduce approach.
+
+        Attributes:
+            models (object): dictionary of outputs, and ensemble of models per output
+            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models.git/model_store`
+    """
+    def __init__(self, models, model_store='./astromlp-models/model_store', helper=None):
         self.models = models
         self.model_store = model_store
         self.skyserver = SkyServer()

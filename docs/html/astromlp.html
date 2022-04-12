@@ -42,6 +42,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">astromlp</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">astromlp package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
@@ -110,14 +114,48 @@
 <span id="astromlp-galaxies-module"></span><h2>astromlp.galaxies module<a class="headerlink" href="#module-astromlp.galaxies" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="astromlp.galaxies.CherryPicked">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.galaxies.</span></span><span class="sig-name descname"><span class="pre">CherryPicked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.galaxies.CherryPicked" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.galaxies.</span></span><span class="sig-name descname"><span class="pre">CherryPicked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.galaxies.CherryPicked" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#astromlp.pipelines.MapReducePipeline" title="astromlp.pipelines.MapReducePipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">astromlp.pipelines.MapReducePipeline</span></code></a></p>
+<p>Pipeline for processing SDSS galaxy object and a infer a set of properties using an ensemble of models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.galaxies.CherryPicked.model_store">
+<span class="sig-name descname"><span class="pre">model_store</span></span><a class="headerlink" href="#astromlp.galaxies.CherryPicked.model_store" title="Permalink to this definition"></a></dt>
+<dd><p>location of the astromlp-models model store, detaults to <cite>./astromlp-models.git/model_store</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="code docutils literal notranslate"><span class="pre">PipelineResult</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="astromlp.galaxies.One2One">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.galaxies.</span></span><span class="sig-name descname"><span class="pre">One2One</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.galaxies.One2One" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.galaxies.</span></span><span class="sig-name descname"><span class="pre">One2One</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.galaxies.One2One" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#astromlp.pipelines.MapReducePipeline" title="astromlp.pipelines.MapReducePipeline"><code class="xref py py-class docutils literal notranslate"><span class="pre">astromlp.pipelines.MapReducePipeline</span></code></a></p>
+<p>Pipeline for processing SDSS galaxy object and a infer a set of properties using an ensemble of models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.galaxies.One2One.model_store">
+<span class="sig-name descname"><span class="pre">model_store</span></span><a class="headerlink" href="#astromlp.galaxies.One2One.model_store" title="Permalink to this definition"></a></dt>
+<dd><p>location of the astromlp-models model store, detaults to <cite>./astromlp-models.git/model_store</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><code class="code docutils literal notranslate"><span class="pre">PipelineResult</span></code></p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -125,8 +163,31 @@
 <span id="astromlp-pipelines-module"></span><h2>astromlp.pipelines module<a class="headerlink" href="#module-astromlp.pipelines" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="astromlp.pipelines.MapReducePipeline">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.pipelines.</span></span><span class="sig-name descname"><span class="pre">MapReducePipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.pipelines.MapReducePipeline" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.pipelines.</span></span><span class="sig-name descname"><span class="pre">MapReducePipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./astromlp-models/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.pipelines.MapReducePipeline" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for processing an object using a map-reduce approach.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.pipelines.MapReducePipeline.models">
+<span class="sig-name descname"><span class="pre">models</span></span><a class="headerlink" href="#astromlp.pipelines.MapReducePipeline.models" title="Permalink to this definition"></a></dt>
+<dd><p>dictionary of outputs, and ensemble of models per output</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.pipelines.MapReducePipeline.model_store">
+<span class="sig-name descname"><span class="pre">model_store</span></span><a class="headerlink" href="#astromlp.pipelines.MapReducePipeline.model_store" title="Permalink to this definition"></a></dt>
+<dd><p>location of the astromlp-models model store, detaults to <cite>./astromlp-models.git/model_store</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="astromlp.pipelines.MapReducePipeline.process">
 <span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.pipelines.MapReducePipeline.process" title="Permalink to this definition"></a></dt>
@@ -138,6 +199,19 @@
 <dt class="sig sig-object py" id="astromlp.pipelines.PipelineResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.pipelines.</span></span><span class="sig-name descname"><span class="pre">PipelineResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.pipelines.PipelineResult" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for storing the result of processing an object using a pipeline for
+processing SDSS galaxy object and a infer a set of properties using an ensemble of models.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="astromlp.pipelines.PipelineResult.result">
+<span class="sig-name descname"><span class="pre">result</span></span><a class="headerlink" href="#astromlp.pipelines.PipelineResult.result" title="Permalink to this definition"></a></dt>
+<dd><p>location of the astromlp-models model store, detaults to <cite>./astromlp-models.git/model_store</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
