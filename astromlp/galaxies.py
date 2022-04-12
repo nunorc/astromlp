@@ -5,10 +5,10 @@ from statistics import mean
 import numpy as np
 import concurrent.futures
 
-from mysdss.helper import Helper
-from mysdss.predictor import Predictor
-from mysdss.shared import CLASSES
-from mysdss.skyserver import SkyServer
+from .sdss.helper import Helper
+from .sdss.predictor import Predictor
+from .sdss.shared import CLASSES
+from .sdss.skyserver import SkyServer
 
 from .pipelines import MapReducePipeline
 

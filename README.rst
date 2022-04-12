@@ -18,19 +18,13 @@ Install package from the git repository:
 
     $ pip install git+https://github.com/nunorc/astromlp@master
 
-Extra requirements for galaxies charaterization pipelines:
-
-- The models, available from the `astromlp-models <https://github.com/nunorc/astromlp-models>`_ repository, quick clone:
+For galaxies charaterization pipelines the collectin of models available from the
+`astromlp-models <https://github.com/nunorc/astromlp-models>`_ repository is required,
+for example quick clone:
 
 .. code-block:: bash
 
     $ git clone https://github.com/nunorc/astromlp-models.git
-
-- The **mysdss** package, available from the `mysdss <https://github.com/nunorc/mysdss>`_ repository, quick install:
-
-.. code-block:: bash
-
-    $ pip install git+https://github.com/nunorc/mysdss@master
 
 Quick Start
 -------------------------------------
@@ -72,7 +66,7 @@ The :code:`PipelineResult` object implements other methods that provide extra da
 
 - :code:`objid`: returns the SDSS object identifier;
 - :code:`obj`: returns some information about the object from SDSS data;
-- :code:`models`: returns the ensemble of models user;
+- :code:`models`: returns the ensemble of models used;
 - :code:`map`: returns the list of results of applying each individual model for each output.
 
 You can easily create new ensembles of modules using the :code:`MapReducPipeline` and passing the

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>astromlp.sdss package &mdash; astromlp  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="astromlp package" href="astromlp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> astromlp
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">astromlp</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="astromlp.html">astromlp package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="astromlp.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">astromlp.sdss package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="astromlp.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.galaxies">astromlp.galaxies module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp.pipelines">astromlp.pipelines module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="astromlp.html#module-astromlp">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">astromlp</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">astromlp</a> &raquo;</li>
+          <li><a href="astromlp.html">astromlp package</a> &raquo;</li>
+      <li>astromlp.sdss package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/astromlp.sdss.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="astromlp-sdss-package">
+<h1>astromlp.sdss package<a class="headerlink" href="#astromlp-sdss-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-astromlp.sdss.datagen">
+<span id="astromlp-sdss-datagen-module"></span><h2>astromlp.sdss.datagen module<a class="headerlink" href="#module-astromlp.sdss.datagen" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.datagen.</span></span><span class="sig-name descname"><span class="pre">DataGen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['img',</span> <span class="pre">'spectra',</span> <span class="pre">'bands']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['redshift',</span> <span class="pre">'subclass']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'gz2c':</span> <span class="pre">['A',</span> <span class="pre">'Ec',</span> <span class="pre">'Ei',</span> <span class="pre">'Er',</span> <span class="pre">'SBa',</span> <span class="pre">'SBaR',</span> <span class="pre">'SBb',</span> <span class="pre">'SBbR',</span> <span class="pre">'SBc',</span> <span class="pre">'SBcR',</span> <span class="pre">'SBd',</span> <span class="pre">'SBdR',</span> <span class="pre">'Sa',</span> <span class="pre">'SaR',</span> <span class="pre">'Sb',</span> <span class="pre">'SbR',</span> <span class="pre">'Sc',</span> <span class="pre">'ScR',</span> <span class="pre">'Sd',</span> <span class="pre">'SdR',</span> <span class="pre">'Seb',</span> <span class="pre">'Sen',</span> <span class="pre">'Ser'],</span> <span class="pre">'subclass':</span> <span class="pre">['AGN',</span> <span class="pre">'BROADLINE',</span> <span class="pre">'STARBURST',</span> <span class="pre">'STARFORMING']}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">keras.utils.data_utils.Sequence</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.datagen.DataGen.on_epoch_end">
+<span class="sig-name descname"><span class="pre">on_epoch_end</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.datagen.DataGen.on_epoch_end" title="Permalink to this definition"></a></dt>
+<dd><p>Method called at the end of every epoch.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-astromlp.sdss.helper">
+<span id="astromlp-sdss-helper-module"></span><h2>astromlp.sdss.helper module<a class="headerlink" href="#module-astromlp.sdss.helper" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.helper.</span></span><span class="sig-name descname"><span class="pre">Helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../sdss-gs'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.fits_filename">
+<span class="sig-name descname"><span class="pre">fits_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fits'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.fits_filename" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.get_obj">
+<span class="sig-name descname"><span class="pre">get_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.get_obj" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.ids_list">
+<span class="sig-name descname"><span class="pre">ids_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">has_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_fits</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_spectra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_ssel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_bands</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_wise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_gz2c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.ids_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.img_filename">
+<span class="sig-name descname"><span class="pre">img_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'img'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.img_filename" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_bands">
+<span class="sig-name descname"><span class="pre">load_bands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_bands" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_fits">
+<span class="sig-name descname"><span class="pre">load_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_fits" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_img">
+<span class="sig-name descname"><span class="pre">load_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_img" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_imgs">
+<span class="sig-name descname"><span class="pre">load_imgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_imgs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_spectra">
+<span class="sig-name descname"><span class="pre">load_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_spectra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_spectras">
+<span class="sig-name descname"><span class="pre">load_spectras</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_spectras" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_ssel">
+<span class="sig-name descname"><span class="pre">load_ssel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_ssel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_ssels">
+<span class="sig-name descname"><span class="pre">load_ssels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_ssels" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.load_wises">
+<span class="sig-name descname"><span class="pre">load_wises</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.load_wises" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.random_id">
+<span class="sig-name descname"><span class="pre">random_id</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.random_id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_fits">
+<span class="sig-name descname"><span class="pre">save_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_fits" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_img">
+<span class="sig-name descname"><span class="pre">save_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_img" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_spectra">
+<span class="sig-name descname"><span class="pre">save_spectra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_spectra" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.save_ssel">
+<span class="sig-name descname"><span class="pre">save_ssel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectra_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.save_ssel" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.spectra_filename">
+<span class="sig-name descname"><span class="pre">spectra_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spectra'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.spectra_filename" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.spectra_url">
+<span class="sig-name descname"><span class="pre">spectra_url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.spectra_url" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.ssel_filename">
+<span class="sig-name descname"><span class="pre">ssel_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DIR</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ssel'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.ssel_filename" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.y_list">
+<span class="sig-name descname"><span class="pre">y_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.y_list" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.helper.Helper.y_list_class">
+<span class="sig-name descname"><span class="pre">y_list_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.helper.Helper.y_list_class" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-astromlp.sdss.predictor">
+<span id="astromlp-sdss-predictor-module"></span><h2>astromlp.sdss.predictor module<a class="headerlink" href="#module-astromlp.sdss.predictor" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.sdss.predictor.Predictor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.predictor.</span></span><span class="sig-name descname"><span class="pre">Predictor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_store</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'../astromlp-models.git/model_store'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmp_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/tmp/mysdss'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.predictor.Predictor.predict">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.predictor.Predictor.predict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-astromlp.sdss.shared">
+<span id="astromlp-sdss-shared-module"></span><h2>astromlp.sdss.shared module<a class="headerlink" href="#module-astromlp.sdss.shared" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-astromlp.sdss.skyserver">
+<span id="astromlp-sdss-skyserver-module"></span><h2>astromlp.sdss.skyserver module<a class="headerlink" href="#module-astromlp.sdss.skyserver" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">astromlp.sdss.skyserver.</span></span><span class="sig-name descname"><span class="pre">SkyServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'http://skyserver.sdss.org/dr16/SkyServerWS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer.get_obj">
+<span class="sig-name descname"><span class="pre">get_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer.get_obj" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="astromlp.sdss.skyserver.SkyServer.save_jpeg">
+<span class="sig-name descname"><span class="pre">save_jpeg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">150</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">150</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.skyserver.SkyServer.save_jpeg" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-astromlp.sdss.utils">
+<span id="astromlp-sdss-utils-module"></span><h2>astromlp.sdss.utils module<a class="headerlink" href="#module-astromlp.sdss.utils" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.build_datagens">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">build_datagens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">helper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.build_datagens" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.history_fit_plots">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">history_fit_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./model_plots'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.history_fit_plots" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.my_callbacks">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">my_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'val_loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_board</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.my_callbacks" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.train_test_split">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">train_test_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.train_test_split" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.train_val_test_split">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">train_val_test_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.train_val_test_split" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-astromlp.sdss">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-astromlp.sdss" title="Permalink to this headline"></a></h2>
+<p>sdss init</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="astromlp.html" class="btn btn-neutral float-left" title="astromlp package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Nuno Ramos Carvalho.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

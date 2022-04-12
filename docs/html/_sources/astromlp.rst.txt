@@ -1,6 +1,14 @@
 astromlp package
 ================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   astromlp.sdss
+
 Submodules
 ----------
 
