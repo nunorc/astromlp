@@ -12,6 +12,14 @@ Subpackages
 Submodules
 ----------
 
+astromlp.api module
+-------------------
+
+.. automodule:: astromlp.api
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 astromlp.galaxies module
 ------------------------
 
