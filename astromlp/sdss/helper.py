@@ -5,6 +5,7 @@ from pandas import read_csv, concat
 from astropy.io import fits
 import tensorflow.keras.preprocessing.image as keras
 from ImageCutter.ImageCutter import FITSImageCutter
+import concurrent.futures
 
 from .skyserver import SkyServer
 
@@ -106,7 +107,7 @@ class Helper:
     def _ssel_filename(self, objID, DIR='ssel'):
         return os.path.join(self.ds, DIR, str(objID)+'.csv')
 
-    def get_obj(self, id):
+    def get_obj(self, id, wise=False):
         """ Retrieve information for a SDSS object.
 
             Args:
@@ -119,9 +120,9 @@ class Helper:
 
         sl = self.df[self.df['objid'] == id]
         if sl.empty:
-            return None
+            return self.ss.get_obj(id, wise=wise)
         else:
-            return sl.iloc[0].to_dict()
+            return sl.replace({np.nan: None}).iloc[0].to_dict()
 
     def y_list(self, ids, target):
         """ Build a list of target data to use in the data generator for a continuous variable.
@@ -366,6 +367,16 @@ class Helper:
 
         return self.ss.save_jpeg(obj['objid'], filename, ra=obj['ra'], dec=obj['dec'], scale=0.2, width=150, height=150)
 
+    def _save_frame(self, url, filename):
+        print('_save_frame', url)
+        if os.path.exists(filename) or os.path.exists(filename.replace('.bz2', '')):
+            return
+
+        r = requests.get(url)
+        if r.status_code == 200:
+            with open(filename, 'wb') as fout:
+                fout.write(r.content)
+
     def save_fits(self, obj, filename=None, base_dir='./'):
         """ Retrieve and save FITS data file for a given SDSS object.
 
@@ -382,17 +393,11 @@ class Helper:
             with open(filename, 'rb') as fin:
                 return np.load(fin)
 
+        # download frames files
         urls_files = self._frames_urls_filenames(obj, base_dir=base_dir)
-
-        # download fits files
-        for u, f in urls_files:
-            if os.path.exists(f) or os.path.exists(f.replace('.bz2', '')):
-                pass
-            else:
-                r = requests.get(u)
-                if r.status_code == 200:
-                    with open(f, 'wb') as fout:
-                        fout.write(r.content)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            for u, f in urls_files:
+                executor.submit(self._save_frame, u, f)
 
         # unzip files
         for _, f in urls_files:
