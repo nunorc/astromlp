@@ -17,7 +17,7 @@ class PipelineResult:
         processing SDSS galaxy object and a infer a set of properties using an ensemble of models.
 
         Attributes:
-            result (object): location of the astromlp-models model store, detaults to `./astromlp-models/model_store`
+            result (object): location of the astromlp-models model store, defaults to `./astromlp-models/model_store`
     """
     def __init__(self, result):
         self.objid = result['objid']
@@ -47,7 +47,7 @@ class MapReducePipeline:
 
         Attributes:
             models (object): dictionary of outputs, and ensemble of models per output
-            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models/model_store`
+            model_store (str): location of the astromlp-models model store, defaults to `./astromlp-models/model_store`
     """
     def __init__(self, models, model_store='./astromlp-models/model_store', helper=None):
         self.models = models

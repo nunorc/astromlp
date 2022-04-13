@@ -33,7 +33,7 @@ def train_val_test_split(ids):
     return IDs_train, IDs_val, IDs_test
 
 def build_datagens(ids, x=None, y=None, batch_size=32, helper=None):
-    """ Build a data generator for a training, validatin and test sets.
+    """ Build a data generator for a training, validation and test sets.
 
         Args:
             ids ([int]): a list of SDSS object identifiers
@@ -41,7 +41,7 @@ def build_datagens(ids, x=None, y=None, batch_size=32, helper=None):
             y ([str]): list of output variables (eg. `redshift`, `subclass`)
             batch_size (int): batch size, defaults to `32`
         Returns:
-            a tuple of datagenerators
+            a tuple of data generators
     """
     ids_train, ids_val, ids_test = train_val_test_split(ids)
 

@@ -41,5 +41,5 @@ this `fork <https://github.com/nunorc/ImageCutter>`_  from the repository:
 
 .. code-block:: bash
 
-    $ pip install pip install git+https://github.com/nunorc/ImageCutter.git
+    $ pip install git+https://github.com/nunorc/ImageCutter.git
 

@@ -35,7 +35,7 @@ class CherryPicked(MapReducePipeline):
     """ Pipeline for processing SDSS galaxy object and a infer a set of properties using an ensemble of models.
 
         Attributes:
-            model_store (str): location of the astromlp-models model store, detaults to `./astromlp-models/model_store`
+            model_store (str): location of the astromlp-models model store, defaults to `./astromlp-models/model_store`
         Returns:
             :code:`PipelineResult`
     """

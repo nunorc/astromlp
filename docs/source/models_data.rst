@@ -14,6 +14,6 @@ Datasets
 
 Datasets used to fit the models used in the pipelines ensembles:
 
-- The `SDSS Galaxy Subset <https://zenodo.org/record/6393488>`_ dataset is used to train and explore the models availble for charaterinzg galaxies, which is a subset of the data avaible from the `Sloan Digital Sky Survey <https://www.sdss.org/>`_.
+- The `SDSS Galaxy Subset <https://zenodo.org/record/6393488>`_ dataset is used to train and explore the models available for characterizing galaxies, which is a subset of the data available from the `Sloan Digital Sky Survey <https://www.sdss.org/>`_.
 
 

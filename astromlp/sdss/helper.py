@@ -124,7 +124,7 @@ class Helper:
             return sl.iloc[0].to_dict()
 
     def y_list(self, ids, target):
-        """ Build a list of target data to use in the data grnerator for a continuous variable.
+        """ Build a list of target data to use in the data generator for a continuous variable.
 
             Args:
                 ids ([int]): list of SDSS object identifiers
@@ -141,7 +141,7 @@ class Helper:
             return res
 
     def y_list_class(self, ids, target, classes):
-        """ Build a list of target data to use in the data grnerator for a class variable.
+        """ Build a list of target data to use in the data generator for a class variable.
 
             Args:
                 ids ([int]): list of SDSS object identifiers
