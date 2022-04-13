@@ -28,6 +28,7 @@ class Predictor:
 
         self.skyserver = SkyServer()
 
+        self.model = None
         if model:
             if isinstance(model, str):
                 if not os.path.exists(model):
