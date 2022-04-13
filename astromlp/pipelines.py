@@ -1,5 +1,5 @@
 
-import os, logging, copy
+import os, logging, copy, json
 import tensorflow as tf
 from statistics import mean
 import numpy as np
@@ -41,6 +41,9 @@ class PipelineResult:
                 vals.append(f"{ k }={ v }")
 
         return ", ".join(vals)
+
+    def to_json(self):
+        return json.dumps(self, default=lambda o: o.__dict__)
 
 class MapReducePipeline:
     """ Base class for processing an object using a map-reduce approach.

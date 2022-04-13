@@ -9,4 +9,5 @@
    quick_start
    pipelines
    models_data
+   api
    modules
