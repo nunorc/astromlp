@@ -360,7 +360,7 @@ class Helper:
                 a numpy array
         """
         if filename is None:
-            filename = self.helper.img_filename(obj['objid'])
+            filename = self._img_filename(obj['objid'])
 
         if os.path.exists(filename):
             return filename
@@ -368,7 +368,6 @@ class Helper:
         return self.ss.save_jpeg(obj['objid'], filename, ra=obj['ra'], dec=obj['dec'], scale=0.2, width=150, height=150)
 
     def _save_frame(self, url, filename):
-        print('_save_frame', url)
         if os.path.exists(filename) or os.path.exists(filename.replace('.bz2', '')):
             return
 
@@ -387,7 +386,7 @@ class Helper:
                 a numpy array
         """
         if filename is None:
-            filename = self.helper.fits_filename(obj['objid'])
+            filename = self._fits_filename(obj['objid'])
 
         if os.path.exists(filename):
             with open(filename, 'rb') as fin:
