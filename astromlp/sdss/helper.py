@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 class Helper:
     """ A helper class providing set of helper functions to deal with the
-        `SDSS Galaxy Subset <https://zenodo.org/record/6393488>`_ dataset,
+        `SDSS Galaxy Subset <https://zenodo.org/record/6501642>`_ dataset,
         henceforth refereed to as `sdss-ds`.
 
         Attributes:
