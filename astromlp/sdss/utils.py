@@ -1,5 +1,5 @@
 
-import os, datetime, requests
+import os, datetime, requests, math
 import tensorflow as tf
 from sklearn.model_selection import train_test_split as sk_train_test_split
 import matplotlib.pyplot as plt
@@ -142,21 +142,50 @@ def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
     plt.savefig(os.path.join(base_dir, f'{ name }_plots.png'), bbox_inches='tight')
     plt.close(fig)
 
-def my_callbacks(name=None, path=None, check_point=False, monitor='val_loss', mode='min', tensor_board=True):
+def _schedule_time_based_decay(epoch, lr):
+    decay = 0.0001  # initial_learning_rate / epochs
+
+    return lr * 1 / (1 + decay * epoch)
+
+def _schedule_step_decay(epoch, lr):
+    drop_rate = 0.5
+    epochs_drop = 10.0
+
+    return 0.001 * math.pow(drop_rate, math.floor(epoch/epochs_drop))
+
+def my_callbacks(name=None,
+                 path=None,
+                 check_point=False,
+                 monitor='val_loss',
+                 mode='min',
+                 lr_scheduler=False,
+                 schedule='time_based_decay',
+                 tensor_board=True):
     """ Return a list of Keras callbacks.
 
         Args:
             name (str): model name
-            path (str): model path
+            path (str): model path, for saving the model
+            check_point (bool): include the ModelCheckpoint Keras default callback
+            lr_scheduler (bool): include the LearningRateScheduler Keras default callback
+            schedule (str): the learning rate schedule, 'time_based_decay' or 'step_decay'
+            tensor_board (bool): include the TensorBoard Keras default callback
     """
-    log_dir = os.path.join('logs', datetime.datetime.now().strftime("%Y-%m-%d"))
-
     my_callbacks = []
+
     if check_point:
         my_callbacks.append(tf.keras.callbacks.ModelCheckpoint(filepath=os.path.join(path, name),
                                            monitor=monitor, mode=mode,
                                            save_best_only=True, verbose=1))
+
+    if lr_scheduler:
+        if schedule == 'time_based_decay':
+            my_callbacks.append(tf.keras.callbacks.LearningRateScheduler(_schedule_time_based_decay, verbose=1))
+        if schedule == 'step_decay':
+            my_callbacks.append(tf.keras.callbacks.LearningRateScheduler(_schedule_step_decay, verbose=1))
+
     if tensor_board:
+        log_dir = os.path.join('logs', datetime.datetime.now().strftime("%Y-%m-%d"))
         my_callbacks.append(tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1))
 
     return my_callbacks
