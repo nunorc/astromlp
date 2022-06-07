@@ -408,6 +408,7 @@ class Helper:
         for u, f in urls_files:
             _exists.append(os.path.exists(f.replace('.bz2', '')))
 
+        result = None
         if all(_exists):
             arr = []
             for _, f in urls_files:
@@ -430,9 +431,17 @@ class Helper:
                 with open(filename, 'wb') as fout:
                     data = np.stack(arr, axis=-1)
                     np.save(fout, data)
-                    return data
+                    result = data
             else:
                 logger.warn('Err len', _id)
+
+        # delete fits files
+        for _, f in urls_files:
+            f = f.replace('.bz2', '')
+            if os.path.exists(f):
+                os.remove(f)
+
+        return result
 
     def _spectra_url(self, obj):
         return f"https://dr16.sdss.org/optical/spectrum/view/data/format=csv/spec=lite?plateid={ obj['plate'] }&mjd={ obj['mjd'] }&fiberid={ obj['fiberid'] }"
