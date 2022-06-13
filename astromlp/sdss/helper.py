@@ -423,7 +423,7 @@ class Helper:
                 if data.shape == (61, 61):
                     arr.append(data)
                 else:
-                    logger.warn('Err shape', _id, f.replace('.bz2', ''))
+                    logger.warn(f"Err shape { obj['objid'] } - { f.replace('.bz2', '') }")
 
                 tmp.close()
 
@@ -433,7 +433,7 @@ class Helper:
                     np.save(fout, data)
                     result = data
             else:
-                logger.warn('Err len', _id)
+                logger.warn(f"Err shape { obj['objid'] }")
 
         # delete fits files
         for _, f in urls_files:
