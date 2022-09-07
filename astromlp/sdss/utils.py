@@ -61,6 +61,7 @@ def history_save(name, history, base_dir='./model_history'):
     """
     filename = os.path.join(base_dir, f"{ name }.pkl")
 
+    os.makedirs(base_dir, exist_ok=True)
     with open(filename, 'wb') as fout:
         pickle.dump(history.history, fout)
 
