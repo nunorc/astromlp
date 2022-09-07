@@ -1,5 +1,5 @@
 
-import os, datetime, requests, math
+import os, datetime, requests, math, pickle
 import tensorflow as tf
 from sklearn.model_selection import train_test_split as sk_train_test_split
 import matplotlib.pyplot as plt
@@ -51,25 +51,58 @@ def build_datagens(ids, x=None, y=None, batch_size=32, helper=None):
 
     return train_gen, val_gen, test_gen
 
+def history_save(name, history, base_dir='./model_history'):
+    """ Save model history given a tensorflow history object.
+
+        Args:
+            name (str): model name
+            history (dict): tensorflow history object
+            base_dir (str): files base directory (optional, defaults to './model_history')
+    """
+    filename = os.path.join(base_dir, f"{ name }.pkl")
+
+    with open(filename, 'wb') as fout:
+        pickle.dump(history.history, fout)
+
+def history_load(name, base_dir='./model_history'):
+    """ Load saved model history.
+
+        Args:
+            name (str): model name
+            base_dir (str): files base directory (optional, defaults to './model_history')
+        Returns:
+            history dict from file
+    """
+    filename = os.path.join(base_dir, f"{ name }.pkl")
+
+    with open(filename, 'rb') as fin:
+        history = pickle.load(fin)
+
+    return history
+
 def _moving_average(x, w=5):
     return np.convolve(x, np.ones(w), 'valid') / w
 
 def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
-    """ Create plots give a tensorflow history object.
+    """ Create plots given a tensorflow history object.
 
         Args:
-            history: tensorflow history object
+            name: model name
+            history: tensorflow history object or history dictionary
     """
+    if type(history) is not dict:
+        history = history.history
+
     fig = plt.figure(figsize=(18, 6))
     fig.set_facecolor('white')
     plt.ioff()
     curr = 1
 
     # loss
-    loss = history.history['loss']
+    loss = history['loss']
     if smoothing:
         loss = _moving_average(loss)
-    val_loss = history.history['val_loss']
+    val_loss = history['val_loss']
     if smoothing:
         val_loss = _moving_average(val_loss)
     epochs_range = range(1, len(loss)+1)
@@ -84,11 +117,11 @@ def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
     curr += 1
 
     # accuracy
-    if 'accuracy' in history.history:
-        accuracy = history.history['accuracy']
+    if 'accuracy' in history:
+        accuracy = history['accuracy']
         if smoothing:
             accuracy = _moving_average(accuracy)
-        val_accuracy = history.history['val_accuracy']
+        val_accuracy = history['val_accuracy']
         if smoothing:
             val_accuracy = _moving_average(val_accuracy)
         plt.subplot(1, 3, curr)
@@ -102,11 +135,11 @@ def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
         curr += 1
 
     # mean squared error
-    if 'mean_squared_error' in history.history:
-        mean_squared_error = history.history['mean_squared_error']
+    if 'mean_squared_error' in history:
+        mean_squared_error = history['mean_squared_error']
         if smoothing:
             mean_squared_error = _moving_average(mean_squared_error)
-        val_mean_squared_error = history.history['val_mean_squared_error']
+        val_mean_squared_error = history['val_mean_squared_error']
         if smoothing:
             val_mean_squared_error = _moving_average(val_mean_squared_error)
         plt.subplot(1, 3, curr)
@@ -120,11 +153,11 @@ def history_fit_plots(name, history, base_dir='./model_plots', smoothing=False):
         curr += 1
 
     # mean absolute error
-    if 'mean_absolute_error' in history.history:
-        mean_absolute_error = history.history['mean_absolute_error']
+    if 'mean_absolute_error' in history:
+        mean_absolute_error = history['mean_absolute_error']
         if smoothing:
             mean_absolute_error = _moving_average(mean_absolute_error)
-        val_mean_absolute_error = history.history['val_mean_absolute_error']
+        val_mean_absolute_error = history['val_mean_absolute_error']
         if smoothing:
             val_mean_absolute_error = _moving_average(val_mean_absolute_error)
         plt.subplot(1, 3, curr)
