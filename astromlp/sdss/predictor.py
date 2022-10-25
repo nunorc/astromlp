@@ -81,8 +81,6 @@ class Predictor:
         else:
             filename = os.path.join(self.tmp_dir, f"{ obj['objid'] }.npy")
 
-        print('filename', filename)
-        print('base_dir', self.tmp_dir)
         data = self.helper.save_fits(obj, filename=filename, base_dir=self.tmp_dir)
         _input = np.array([data])
 
