@@ -47,3 +47,20 @@ class CherryPicked(MapReducePipeline):
             'gz2c': ['i2g', 'f2g', 'iFsSSbW2g']
         }
         MapReducePipeline.__init__(self, models, model_store=model_store, helper=helper)
+
+class Universal(MapReducePipeline):
+    """ Pipeline for processing SDSS galaxy object and a infer a set of properties using an ensemble of models.
+
+        Attributes:
+            model_store (str): location of the astromlp-models model store, defaults to `./astromlp-models/model_store`
+        Returns:
+            :code:`PipelineResult`
+    """
+    def __init__(self, model_store='./astromlp-models/model_store', helper=None):
+        models = {
+            'redshift': ['s2r'],
+            'smass': ['i2sm'],
+            'subclass': ['ss2s'],
+            'gz2c': ['f2g']
+        }
+        MapReducePipeline.__init__(self, models, model_store=model_store, helper=helper)

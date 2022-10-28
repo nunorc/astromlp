@@ -584,23 +584,62 @@ henceforth refereed to as <cite>sdss-ds</cite>.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.history_fit_plots">
 <span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">history_fit_plots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./model_plots'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.history_fit_plots" title="Permalink to this definition"></a></dt>
-<dd><p>Create plots give a tensorflow history object.</p>
+<dd><p>Create plots given a tensorflow history object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>history</strong> – tensorflow history object</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – model name</p></li>
+<li><p><strong>history</strong> – tensorflow history object or history dictionary</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.history_load">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">history_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./model_history'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.history_load" title="Permalink to this definition"></a></dt>
+<dd><p>Load saved model history.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – model name</p></li>
+<li><p><strong>base_dir</strong> (<em>str</em>) – files base directory (optional, defaults to ‘./model_history’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>history dict from file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="astromlp.sdss.utils.history_save">
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">history_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./model_history'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.history_save" title="Permalink to this definition"></a></dt>
+<dd><p>Save model history given a tensorflow history object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – model name</p></li>
+<li><p><strong>history</strong> (<em>dict</em>) – tensorflow history object</p></li>
+<li><p><strong>base_dir</strong> (<em>str</em>) – files base directory (optional, defaults to ‘./model_history’)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="astromlp.sdss.utils.my_callbacks">
-<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">my_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'val_loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_board</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.my_callbacks" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">astromlp.sdss.utils.</span></span><span class="sig-name descname"><span class="pre">my_callbacks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">monitor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'val_loss'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'min'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_scheduler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'time_based_decay'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tensor_board</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#astromlp.sdss.utils.my_callbacks" title="Permalink to this definition"></a></dt>
 <dd><p>Return a list of Keras callbacks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – model name</p></li>
-<li><p><strong>path</strong> (<em>str</em>) – model path</p></li>
+<li><p><strong>path</strong> (<em>str</em>) – model path, for saving the model</p></li>
+<li><p><strong>check_point</strong> (<em>bool</em>) – include the ModelCheckpoint Keras default callback</p></li>
+<li><p><strong>lr_scheduler</strong> (<em>bool</em>) – include the LearningRateScheduler Keras default callback</p></li>
+<li><p><strong>schedule</strong> (<em>str</em>) – the learning rate schedule, ‘time_based_decay’ or ‘step_decay’</p></li>
+<li><p><strong>tensor_board</strong> (<em>bool</em>) – include the TensorBoard Keras default callback</p></li>
 </ul>
 </dd>
 </dl>

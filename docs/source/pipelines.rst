@@ -45,3 +45,21 @@ of hand picked models, described in the following table.
 +---------------------+------------------------------------------------+
 | :code:`gz2c`        | :code:`[i2g, f2g, iFsSSbW2g]`                  |
 +---------------------+------------------------------------------------+
+
+**Universal Pipeline**
+
+Infer redshift, stellar mass, subclass and gz2 simplified classification from
+RGB image, FITS, spectra, selected spectra data using specific
+models, described in the following table.
+
++---------------------+------------------------------------------------+
+| Output              | Model                                          |
++=====================+================================================+
+| :code:`redshift`    | :code:`s2r`                                    |
++---------------------+------------------------------------------------+
+| :code:`smass`       | :code:`i2sm`                                   |
++---------------------+------------------------------------------------+
+| :code:`sublcass`    | :code:`ss2s`                                   |
++---------------------+------------------------------------------------+
+| :code:`gz2c`        | :code:`f2g`                                    |
++---------------------+------------------------------------------------+

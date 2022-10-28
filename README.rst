@@ -43,11 +43,11 @@ Quick Start
 -------------------------------------
 
 Import pipelines for a specific topic, for example to import 
-the :code:`One2One` and :code:`CherryPicked` pipelines for galaxies characterization:
+the :code:`One2One`, :code:`CherryPicked` and :code:`Universal` pipelines for galaxies characterization:
 
 .. code-block:: python
 
-    >>> from astromlp.galaxies import One2One, CherryPicked
+    >>> from astromlp.galaxies import One2One, CherryPicked, Universal
 
 Next, create an instance of the `One2One` pipeline, you may need to provide the location
 of the `astromlp-models/model_store` directory where the actual models live,
