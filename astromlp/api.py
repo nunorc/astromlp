@@ -7,7 +7,7 @@ from flask_cors import CORS
 
 from astromlp.sdss.helper import Helper
 from astromlp.sdss.predictor import Predictor
-from astromlp.galaxies import One2One, CherryPicked
+from astromlp.galaxies import One2One, CherryPicked, Universal
 
 app = Flask(__name__)
 CORS(app)
@@ -50,7 +50,8 @@ models = {
 
 pipelines = {
     'one2one': One2One(helper=helper),
-    'cherryPicked': CherryPicked(helper=helper)
+    'cherryPicked': CherryPicked(helper=helper),
+    'universal': Universal(helper=helper)
 }
 
 app.logger.info('Setup done!')
@@ -74,7 +75,6 @@ def _infer(model, objid):
 
 @app.route('/proc/<pl>/<objid>')
 def _proc(pl, objid):
-    print(pl, objid)
     if pl in pipelines.keys():
         app.logger.info(f'Proc: { objid }')
         result = pipelines[pl].process(objid)
