@@ -118,8 +118,10 @@ class Helper:
         if isinstance(id, str):
             id = int(id)
 
-        sl = self.df[self.df['objid'] == id]
-        if sl.empty:
+        if self.df is not None:
+            sl = self.df[self.df['objid'] == id]
+
+        if self.df is None or sl.empty:
             return self.ss.get_obj(id, wise=wise)
         else:
             return sl.replace({np.nan: None}).iloc[0].to_dict()
