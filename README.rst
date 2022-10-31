@@ -91,3 +91,8 @@ the `redshift` using the `i2r` and `f2r` models:
     >>> from astromlp.galaxies import MapReducePipeline
     >>> pipeline = MapReducePipeline({ 'redshift': ['i2r', 'f2r'] })
 
+Acknowledgments
+===============
+
+Thank you to Dr. Andrew Humphrey for helping spawning this project and his contributions that helped improve this work.
+
