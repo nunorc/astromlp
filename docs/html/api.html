@@ -46,7 +46,10 @@
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pipelines.html">Pipelines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="models_data.html">Models &amp; Datasets</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-api-using-docker">Running the API using Docker</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">astromlp</a></li>
 </ul>
 
@@ -86,6 +89,23 @@ is provided by <cite>astromlp.api</cite>. To run the API locally clone the repos
 <li><p><code class="code docutils literal notranslate"><span class="pre">/infer/&lt;model&gt;/&lt;objid&gt;</span></code>: request for prediction for SDSS object identifier <code class="code docutils literal notranslate"><span class="pre">objid</span></code> using model identifier <code class="code docutils literal notranslate"><span class="pre">model</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">/proc/&lt;pipeline&gt;/&lt;objid&gt;</span></code>: request for process an SDSS object identifier <code class="code docutils literal notranslate"><span class="pre">objid</span></code> using pipeline identifier <code class="code docutils literal notranslate"><span class="pre">pipeline</span></code></p></li>
 </ul>
+<section id="running-the-api-using-docker">
+<h2>Running the API using Docker<a class="headerlink" href="#running-the-api-using-docker" title="Permalink to this headline"></a></h2>
+<p>A <a class="reference external" href="https://www.docker.com">Docker</a> file is also available to run the API, to build the Docker image run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker build -t astromlp-api:latest .
+</pre></div>
+</div>
+<p>And to run a container:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -d --rm -p <span class="m">8500</span>:8500 astromlp-api
+</pre></div>
+</div>
+<p>The API is available in <code class="code docutils literal notranslate"><span class="pre">http://localhost:8500</span></code>, and the same methods illustrated before can be used to send queries.
+For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl http://127.0.0.1:8500/infer/i2r/1237648720693755918
+<span class="o">(</span>...<span class="o">)</span> <span class="s2">&quot;output&quot;</span>:<span class="o">[</span><span class="m">0</span>.09091393649578094<span class="o">]</span>,<span class="s2">&quot;x&quot;</span>:<span class="o">[</span><span class="s2">&quot;img&quot;</span><span class="o">]</span>,<span class="s2">&quot;y&quot;</span>:<span class="o">[</span><span class="s2">&quot;redshift&quot;</span><span class="o">]}</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
