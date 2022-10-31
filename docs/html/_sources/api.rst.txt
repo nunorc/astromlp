@@ -23,7 +23,13 @@ A `Docker <https://www.docker.com>`_ file is also available to run the API, to b
 
     $ docker build -t astromlp-api:latest .
 
-And to run a container:
+Or simply pull the image available from `Docker Hub <https://hub.docker.com/repository/docker/nunorc/astromlp-api>`_:
+
+.. code-block:: bash
+
+    $ docker pull nunorc/astromlp-api
+
+And then to run a container:
 
 .. code-block:: bash
 
