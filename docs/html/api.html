@@ -79,12 +79,13 @@
              
   <section id="api">
 <h1>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h1>
-<p>A simple REST API implemented using <a class="reference external" href="https://flask.palletsprojects.com/en/2.1.x/">Flask</a>
-is provided by <cite>astromlp.api</cite>. To run the API locally clone the repository and run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python astromlp/api.py
+<p>A simple REST API implemented using <a class="reference external" href="https://fastapi.tiangolo.com/">FastAPI</a>
+is provided by <cite>astromlp.api</cite>. To run the API locally, for example using <a class="reference external" href="https://www.uvicorn.org/">uvicorn</a>,
+clone the repository and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ uvicorn astromlp.api:app
 </pre></div>
 </div>
-<p>By default the API listens on <code class="code docutils literal notranslate"><span class="pre">http://localhost:8010</span></code> and the following requests are available:</p>
+<p>By default the API listens on <code class="code docutils literal notranslate"><span class="pre">http://127.0.0.1:8000</span></code> and the following requests are available:</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">/infer/&lt;model&gt;/&lt;objid&gt;</span></code>: request for prediction for SDSS object identifier <code class="code docutils literal notranslate"><span class="pre">objid</span></code> using model identifier <code class="code docutils literal notranslate"><span class="pre">model</span></code></p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">/proc/&lt;pipeline&gt;/&lt;objid&gt;</span></code>: request for process an SDSS object identifier <code class="code docutils literal notranslate"><span class="pre">objid</span></code> using pipeline identifier <code class="code docutils literal notranslate"><span class="pre">pipeline</span></code></p></li>
