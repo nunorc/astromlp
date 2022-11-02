@@ -18,17 +18,12 @@ By default the API listens on :code:`http://127.0.0.1:8000` and the following re
 Running the API using Docker
 ----------------------------
 
-A `Docker <https://www.docker.com>`_ file is also available to run the API, to build the Docker image run:
+A `Docker <https://www.docker.com>`_ file is also available to run the API in a container,
+to build the Docker image run from the repository:
 
 .. code-block:: bash
 
     $ docker build -t astromlp-api:latest .
-
-Or simply pull the image available from `Docker Hub <https://hub.docker.com/repository/docker/nunorc/astromlp-api>`_:
-
-.. code-block:: bash
-
-    $ docker pull nunorc/astromlp-api
 
 And then to run a container:
 
@@ -36,10 +31,17 @@ And then to run a container:
 
     $ docker run -d --rm -p 8500:8500 astromlp-api
 
-The API is available in :code:`http://localhost:8500`, and the same methods illustrated before can be used to send queries.
-For example:
+The API is available from :code:`http://127.0.0.1:8500`, and the same methods illustrated before can be used to send queries,
+for example:
 
 .. code-block:: bash
 
     $ curl http://127.0.0.1:8500/infer/i2r/1237648720693755918
     (...) "output":[0.09091393649578094],"x":["img"],"y":["redshift"]}
+
+An image is also available from `Docker Hub <https://hub.docker.com/repository/docker/nunorc/astromlp-api>`_,
+to pull the image run:
+
+.. code-block:: bash
+
+    $ docker pull nunorc/astromlp-api

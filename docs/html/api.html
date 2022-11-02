@@ -92,22 +92,24 @@ clone the repository and run:</p>
 </ul>
 <section id="running-the-api-using-docker">
 <h2>Running the API using Docker<a class="headerlink" href="#running-the-api-using-docker" title="Permalink to this headline"></a></h2>
-<p>A <a class="reference external" href="https://www.docker.com">Docker</a> file is also available to run the API, to build the Docker image run:</p>
+<p>A <a class="reference external" href="https://www.docker.com">Docker</a> file is also available to run the API in a container,
+to build the Docker image run from the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker build -t astromlp-api:latest .
-</pre></div>
-</div>
-<p>Or simply pull the image available from <a class="reference external" href="https://hub.docker.com/repository/docker/nunorc/astromlp-api">Docker Hub</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker pull nunorc/astromlp-api
 </pre></div>
 </div>
 <p>And then to run a container:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run -d --rm -p <span class="m">8500</span>:8500 astromlp-api
 </pre></div>
 </div>
-<p>The API is available in <code class="code docutils literal notranslate"><span class="pre">http://localhost:8500</span></code>, and the same methods illustrated before can be used to send queries.
-For example:</p>
+<p>The API is available from <code class="code docutils literal notranslate"><span class="pre">http://127.0.0.1:8500</span></code>, and the same methods illustrated before can be used to send queries,
+for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl http://127.0.0.1:8500/infer/i2r/1237648720693755918
 <span class="o">(</span>...<span class="o">)</span> <span class="s2">&quot;output&quot;</span>:<span class="o">[</span><span class="m">0</span>.09091393649578094<span class="o">]</span>,<span class="s2">&quot;x&quot;</span>:<span class="o">[</span><span class="s2">&quot;img&quot;</span><span class="o">]</span>,<span class="s2">&quot;y&quot;</span>:<span class="o">[</span><span class="s2">&quot;redshift&quot;</span><span class="o">]}</span>
+</pre></div>
+</div>
+<p>An image is also available from <a class="reference external" href="https://hub.docker.com/repository/docker/nunorc/astromlp-api">Docker Hub</a>,
+to pull the image run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker pull nunorc/astromlp-api
 </pre></div>
 </div>
 </section>

@@ -7,7 +7,7 @@ RUN pip install tensorflow tensorflow-io
 
 ADD requirements.txt .
 RUN pip install -r requirements.txt
-RUN pip install gunicorn flask flask-cors
+RUN pip install fastapi uvicorn
 
 RUN apt update
 RUN apt install -y git git-lfs build-essential libbz2-dev
@@ -21,5 +21,4 @@ WORKDIR /app/astromlp
 
 EXPOSE 8500
 
-ENTRYPOINT gunicorn -b :8500 --workers=1 --access-logfile - --error-logfile - astromlp.api:app
-
+ENTRYPOINT uvicorn --host 0.0.0.0 --port 8500 astromlp.api:app
