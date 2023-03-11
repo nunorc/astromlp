@@ -3,3 +3,4 @@ pandas
 tensorflow
 astropy
 matplotlib
+scikit-learn

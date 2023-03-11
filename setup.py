@@ -15,5 +15,5 @@ setup(name = 'astromlp',
       long_description_content_type = 'text/x-rst',
       license = 'MIT',
       packages = find_packages(),
-      install_requires = ['numpy', 'pandas', 'tensorflow', 'astropy'])
+      install_requires = ['numpy', 'pandas', 'tensorflow', 'astropy', 'scikit-learn'])
 
